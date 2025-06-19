@@ -83,7 +83,7 @@
     <input type="text" id="regUsername" placeholder="Nama Pengguna">
     <input type="email" id="regEmail" placeholder="Email">
     <input type="tel" id="regPhone" placeholder="Nomor HP">
-    <input type="date" id="regDob" placeholder="Tanggal Lahir">
+    <input type="date" id="regDob">
     <input type="password" id="regPassword" placeholder="Password">
     <input type="file" id="regPhoto" accept="image/*">
     <input type="text" id="regCaptchaInput" placeholder="Captcha">
@@ -104,7 +104,7 @@
     <input type="text" id="resetCaptchaInput" placeholder="Captcha">
     <button onclick="resetPassword()">Reset Password</button>
     <p id="resetMsg" class="success hidden">Password berhasil direset!</p>
-    <p id="resetError" class="error hidden">Data tidak ditemukan atau captcha belum dicentang.</p>
+    <p id="resetError" class="error hidden">Data tidak ditemukan atau captcha salah.</p>
     <p><a href="#" onclick="showLogin()">Kembali ke Login</a></p>
   </div>
 
@@ -115,170 +115,188 @@
     <h3>Scan DANA Kaget di bawah ini</h3>
     <canvas id="qr"></canvas>
   </div>
-  
+
+  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore-compat.js"></script>
+
   <script>
-  const users = [];
-  let currentUser = null;
-  let currentCaptcha = null;
-
-  const captchaQuestions = [
-    { q: "Berapa 2 + 3?", a: "5" },
-    { q: "Apa warna langit saat cerah?", a: "biru" },
-    { q: "Huruf pertama dari DANA?", a: "d" },
-    { q: "Berapa hasil 10 - 4?", a: "6" },
-    { q: "Apa lawan kata dari besar?", a: "kecil" },
-    { q: "Hari setelah Jumat?", a: "sabtu" },
-    { q: "Berapa 3 x 3?", a: "9" },
-    { q: "Apa warna daun?", a: "hijau" }
-  ];
-
-  function setCaptcha(fieldId) {
-    const random = captchaQuestions[Math.floor(Math.random() * captchaQuestions.length)];
-    currentCaptcha = random;
-    document.getElementById(fieldId).placeholder = random.q + " (Captcha)";
-  }
-
-  function getNow() {
-    const now = new Date();
-    return now.toLocaleString('id-ID');
-  }
-
-  function hideAll() {
-    document.getElementById("loginBox").classList.add("hidden");
-    document.getElementById("registerBox").classList.add("hidden");
-    document.getElementById("resetBox").classList.add("hidden");
-    document.getElementById("qrBox").classList.add("hidden");
-    document.querySelectorAll(".error, .success").forEach(el => el.classList.add("hidden"));
-  }
-
-  function showLogin() {
-    hideAll();
-    document.getElementById("loginBox").classList.remove("hidden");
-    document.getElementById("title").textContent = "Login untuk akses DANA Kaget";
-    setCaptcha("loginCaptchaInput");
-  }
-
-  function showRegister() {
-    hideAll();
-    document.getElementById("registerBox").classList.remove("hidden");
-    document.getElementById("title").textContent = "Daftar Akun Baru";
-    setCaptcha("regCaptchaInput");
-  }
-
-  function showReset() {
-    hideAll();
-    document.getElementById("resetBox").classList.remove("hidden");
-    document.getElementById("title").textContent = "Reset Password";
-    setCaptcha("resetCaptchaInput");
-  }
-
-  function register() {
-    const username = document.getElementById("regUsername").value.trim();
-    const email = document.getElementById("regEmail").value.trim();
-    const phone = document.getElementById("regPhone").value.trim();
-    const dob = document.getElementById("regDob").value;
-    const password = document.getElementById("regPassword").value.trim();
-    const captcha = document.getElementById("regCaptchaInput").value.trim().toLowerCase();
-    const ageConfirmed = document.getElementById("regAge").checked;
-    const rulesConfirmed = document.getElementById("regRules").checked;
-    const photoInput = document.getElementById("regPhoto");
-    const errorBox = document.getElementById("regError");
-
-    const isGmail = email.endsWith("@gmail.com");
-    const isValidPhone = phone.startsWith("08") || phone.startsWith("+62") || phone.startsWith("62");
-
-    if (!username || !email || !phone || !dob || !password || !captcha || !ageConfirmed || !rulesConfirmed || !photoInput.files.length) {
-      errorBox.textContent = "Isi semua data & centang semua pernyataan, termasuk upload foto.";
-      errorBox.classList.remove("hidden");
-      return;
-    }
-
-    if (!isGmail) {
-      errorBox.textContent = "Hanya email @gmail.com yang diperbolehkan.";
-      errorBox.classList.remove("hidden");
-      return;
-    }
-
-    if (!isValidPhone) {
-      errorBox.textContent = "Nomor HP harus diawali dengan 08, +62, atau 62.";
-      errorBox.classList.remove("hidden");
-      return;
-    }
-
-    if (captcha !== currentCaptcha.a.toLowerCase()) {
-      errorBox.textContent = "Jawaban captcha salah.";
-      errorBox.classList.remove("hidden");
-      return;
-    }
-
-    const reader = new FileReader();
-    reader.onload = function(e) {
-      const photoData = e.target.result;
-      users.push({ username, email, phone, dob, password, photo: photoData, registeredAt: getNow() });
-      document.getElementById("regSuccess").classList.remove("hidden");
-      errorBox.classList.add("hidden");
-      setTimeout(showLogin, 2000);
+    const firebaseConfig = {
+      apiKey: "AIzaSyAeHD6NSgxIIMiuBrP-js0rhwbdzt2uM6c",
+      authDomain: "daget-dbba3.firebaseapp.com",
+      projectId: "daget-dbba3",
+      storageBucket: "daget-dbba3.appspot.com",
+      messagingSenderId: "74135604278",
+      appId: "1:74135604278:web"
     };
-    reader.readAsDataURL(photoInput.files[0]);
-  }
 
-  function login() {
-    const input = document.getElementById("loginInput").value.trim();
-    const pass = document.getElementById("loginPassword").value.trim();
-    const captcha = document.getElementById("loginCaptchaInput").value.trim().toLowerCase();
+    firebase.initializeApp(firebaseConfig);
+    const auth = firebase.auth();
+    const db = firebase.firestore();
 
-    const user = users.find(u =>
-      (u.username === input || u.email === input || u.phone === input) && u.password === pass
-    );
+    const captchaQuestions = [
+      { q: "Berapa 2 + 3?", a: "5" },
+      { q: "Apa warna langit saat cerah?", a: "biru" },
+      { q: "Huruf pertama dari DANA?", a: "d" },
+      { q: "Berapa hasil 10 - 4?", a: "6" },
+      { q: "Apa lawan kata dari besar?", a: "kecil" },
+      { q: "Hari setelah Jumat?", a: "sabtu" },
+      { q: "Berapa 3 x 3?", a: "9" },
+      { q: "Apa warna daun?", a: "hijau" }
+    ];
+    let currentCaptcha = null;
 
-    if (user && captcha === currentCaptcha.a.toLowerCase()) {
-      currentUser = user;
+    function setCaptcha(fieldId) {
+      const random = captchaQuestions[Math.floor(Math.random() * captchaQuestions.length)];
+      currentCaptcha = random;
+      document.getElementById(fieldId).placeholder = random.q + " (Captcha)";
+    }
+
+    function hideAll() {
+      ["loginBox", "registerBox", "resetBox", "qrBox"].forEach(id =>
+        document.getElementById(id).classList.add("hidden")
+      );
+      document.querySelectorAll(".error, .success").forEach(el => el.classList.add("hidden"));
+    }
+
+    function showLogin() {
       hideAll();
-      document.getElementById("qrBox").classList.remove("hidden");
-      document.getElementById("title").textContent = `Selamat Datang, ${user.username}!`;
-      document.getElementById("profilePhotoDisplay").src = user.photo;
+      document.getElementById("loginBox").classList.remove("hidden");
+      document.getElementById("title").textContent = "Login untuk akses DANA Kaget";
+      setCaptcha("loginCaptchaInput");
+    }
 
-      const profileHTML = `
-        <strong>Nama Pengguna:</strong> ${user.username}<br>
-        <strong>Email:</strong> ${user.email}<br>
-        <strong>No HP:</strong> ${user.phone}<br>
-        <strong>Tanggal Lahir:</strong> ${user.dob || 'Tidak tersedia'}<br>
-        <strong>Status:</strong> Terverifikasi ✅<br>
-        <strong>Terdaftar:</strong> ${user.registeredAt}
-      `;
-      document.getElementById("profileInfo").innerHTML = profileHTML;
+    function showRegister() {
+      hideAll();
+      document.getElementById("registerBox").classList.remove("hidden");
+      document.getElementById("title").textContent = "Daftar Akun Baru";
+      setCaptcha("regCaptchaInput");
+    }
 
-      new QRious({
-        element: document.getElementById('qr'),
-        value: "https://link.dana.id/danakaget?c=sayln6ugg&r=blTmh3&orderId=20250619101214357915010300166056829043068",
-        size: 250
+    function showReset() {
+      hideAll();
+      document.getElementById("resetBox").classList.remove("hidden");
+      document.getElementById("title").textContent = "Reset Password";
+      setCaptcha("resetCaptchaInput");
+    }
+
+    function register() {
+      const email = document.getElementById("regEmail").value.trim();
+      const password = document.getElementById("regPassword").value.trim();
+      const username = document.getElementById("regUsername").value.trim();
+      const phone = document.getElementById("regPhone").value.trim();
+      const dob = document.getElementById("regDob").value;
+      const captcha = document.getElementById("regCaptchaInput").value.trim().toLowerCase();
+      const ageConfirmed = document.getElementById("regAge").checked;
+      const rulesConfirmed = document.getElementById("regRules").checked;
+      const photoInput = document.getElementById("regPhoto");
+      const errorBox = document.getElementById("regError");
+      const isGmail = email.endsWith("@gmail.com");
+      const isValidPhone = phone.startsWith("08") || phone.startsWith("+62") || phone.startsWith("62");
+
+      if (!username || !email || !phone || !dob || !password || !captcha || !ageConfirmed || !rulesConfirmed || !photoInput.files.length) {
+        errorBox.textContent = "Isi semua data & centang semua pernyataan, termasuk upload foto.";
+        errorBox.classList.remove("hidden");
+        return;
+      }
+      if (!isGmail) {
+        errorBox.textContent = "Hanya email @gmail.com yang diperbolehkan.";
+        errorBox.classList.remove("hidden");
+        return;
+      }
+      if (!isValidPhone) {
+        errorBox.textContent = "Nomor HP tidak valid.";
+        errorBox.classList.remove("hidden");
+        return;
+      }
+      if (captcha !== currentCaptcha.a.toLowerCase()) {
+        errorBox.textContent = "Captcha salah.";
+        errorBox.classList.remove("hidden");
+        return;
+      }
+
+      auth.createUserWithEmailAndPassword(email, password)
+        .then(cred => {
+          const reader = new FileReader();
+          reader.onload = function(e) {
+            db.collection("users").doc(cred.user.uid).set({
+              email, username, phone, dob, photo: e.target.result,
+              registeredAt: new Date().toISOString()
+            }).then(() => {
+              document.getElementById("regSuccess").classList.remove("hidden");
+              errorBox.classList.add("hidden");
+              setTimeout(showLogin, 2000);
+            });
+          };
+          reader.readAsDataURL(photoInput.files[0]);
+        })
+        .catch(err => {
+          errorBox.textContent = "Gagal daftar: " + err.message;
+          errorBox.classList.remove("hidden");
+        });
+    }
+
+    function login() {
+      const input = document.getElementById("loginInput").value.trim();
+      const pass = document.getElementById("loginPassword").value.trim();
+      const captcha = document.getElementById("loginCaptchaInput").value.trim().toLowerCase();
+
+      if (captcha !== currentCaptcha.a.toLowerCase()) {
+        document.getElementById("loginError").textContent = "Captcha salah.";
+        document.getElementById("loginError").classList.remove("hidden");
+        return;
+      }
+
+      if (input.includes("@")) {
+        auth.signInWithEmailAndPassword(input, pass)
+          .then(cred => showUserData(cred.user.uid))
+          .catch(err => showError(err));
+      } else {
+        db.collection("users").where("phone", "==", input).get()
+          .then(snapshot => {
+            if (snapshot.empty) throw new Error("Nomor tidak ditemukan.");
+            const user = snapshot.docs[0].data();
+            return auth.signInWithEmailAndPassword(user.email, pass)
+              .then(cred => showUserData(cred.user.uid));
+          })
+          .catch(err => showError(err));
+      }
+    }
+
+    function showUserData(uid) {
+      db.collection("users").doc(uid).get().then(doc => {
+        const user = doc.data();
+        hideAll();
+        document.getElementById("qrBox").classList.remove("hidden");
+        document.getElementById("title").textContent = `Selamat Datang, ${user.username}!`;
+        document.getElementById("profilePhotoDisplay").src = user.photo;
+        document.getElementById("profileInfo").innerHTML = `
+          <strong>Nama Pengguna:</strong> ${user.username}<br>
+          <strong>Email:</strong> ${user.email}<br>
+          <strong>No HP:</strong> ${user.phone}<br>
+          <strong>Tanggal Lahir:</strong> ${user.dob}<br>
+          <strong>Status:</strong> Terverifikasi ✅<br>
+          <strong>Terdaftar:</strong> ${new Date(user.registeredAt).toLocaleString("id-ID")}
+        `;
+        new QRious({
+          element: document.getElementById('qr'),
+          value: "https://link.dana.id/danakaget?c=sayln6ugg&r=blTmh3&orderId=20250619101214357915010300166056829043068",
+          size: 250
+        });
       });
-    } else {
+    }
+
+    function showError(err) {
+      document.getElementById("loginError").textContent = "Login gagal: " + err.message;
       document.getElementById("loginError").classList.remove("hidden");
     }
-  }
 
-  function resetPassword() {
-    const contact = document.getElementById("resetContact").value.trim();
-    const newPass = document.getElementById("newPassword").value.trim();
-    const captcha = document.getElementById("resetCaptchaInput").value.trim().toLowerCase();
+    showLogin();
+  </script>
 
-    const user = users.find(u => u.email === contact || u.phone === contact);
-    if (user && captcha === currentCaptcha.a.toLowerCase()) {
-      user.password = newPass;
-      document.getElementById("resetMsg").classList.remove("hidden");
-    } else {
-      document.getElementById("resetError").classList.remove("hidden");
-    }
-  }
-
-  showLogin();
-</script>
-
-<!-- ✅ Tambahan sumber footer -->
-<footer style="margin-top: 40px; font-size: 14px; color: #fff;">
-  &copy; 2025 Sumber: <strong>AGUNG FITRIADI</strong>
-</footer>
-
+  <footer style="margin-top: 40px; font-size: 14px; color: #fff;">
+    &copy; 2025 Sumber: <strong>AGUNG FITRIADI</strong>
+  </footer>
 </body>
 </html>
