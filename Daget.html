@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>DANA Kaget - Login Aman</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrious/4.0.2/qrious.min.js"></script>
+  <style>
+    body {
+      background-color: #0097E6;
+      color: white;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 40px;
+    }
+    .box {
+      background: white;
+      color: black;
+      padding: 20px;
+      border-radius: 12px;
+      display: inline-block;
+      margin-bottom: 20px;
+      max-width: 400px;
+    }
+    input, label {
+      padding: 10px;
+      margin: 8px;
+      width: 90%;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    button {
+      background-color: #0097E6;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: bold;
+      margin-top: 10px;
+    }
+    .hidden { display: none; }
+    .error { color: red; font-size: 14px; }
+    .success { color: green; font-size: 14px; }
+    .profile-info {
+      text-align: left;
+      font-size: 14px;
+      background: #f2f2f2;
+      padding: 10px;
+      border-radius: 10px;
+      margin-bottom: 15px;
+    }
+    .profile-photo {
+      width: 100px;
+      height: 100px;
+      object-fit: cover;
+      border-radius: 50%;
+      margin-bottom: 10px;
+      border: 2px solid #0097E6;
+    }
+  </style>
+</head>
+<body>
+  <div style="background-color: #fff8dc; color: black; border: 2px solid red; padding: 10px; margin-bottom: 20px; border-radius: 10px;">
+    <strong>⚠️ PERHATIAN:</strong> Akun ini <u>wajib didaftarkan</u> dan <u>bukan untuk login aplikasi DANA</u>.<br>
+    Anda harus login akun ini untuk bisa klaim DANA Kaget / DAGET.
+  </div>
+
+  <h2 id="title">Login untuk akses DANA Kaget</h2>
+
+  <div class="box" id="loginBox">
+    <input type="text" id="loginInput" placeholder="Email / No HP / Username">
+    <input type="password" id="loginPassword" placeholder="Password">
+    <input type="text" id="loginCaptchaInput" placeholder="Captcha">
+    <button onclick="login()">Login</button>
+    <p id="loginError" class="error hidden">Login gagal! Cek data & captcha.</p>
+    <p>Belum punya akun? <a href="#" onclick="showRegister()">Daftar</a> | <a href="#" onclick="showReset()">Reset Sandi</a></p>
+  </div>
+  
+  <div class="box hidden" id="registerBox">
+    <input type="text" id="regUsername" placeholder="Nama Pengguna">
+    <input type="email" id="regEmail" placeholder="Email">
+    <input type="tel" id="regPhone" placeholder="Nomor HP">
+    <input type="date" id="regDob" placeholder="Tanggal Lahir">
+    <input type="password" id="regPassword" placeholder="Password">
+    <input type="file" id="regPhoto" accept="image/*">
+    <input type="text" id="regCaptchaInput" placeholder="Captcha">
+    <label><input type="checkbox" id="regAge"> Saya berusia 16 tahun ke atas</label>
+    <label><input type="checkbox" id="regRules"> Saya menyetujui syarat dan ketentuan yang berlaku</label>
+    <div style="font-size: 12px; color: #ffcccc; margin-top: 5px;">
+      ⚠️ Jika melanggar syarat dan ketentuan, akun Anda dapat diblokir secara permanen.
+    </div>
+    <button onclick="register()">Daftar</button>
+    <p id="regSuccess" class="success hidden">Berhasil daftar! Silakan login.</p>
+    <p class="error hidden" id="regError">Isi semua data & centang captcha.</p>
+    <p><a href="#" onclick="showLogin()">Kembali ke Login</a></p>
+  </div>
+
+  <div class="box hidden" id="resetBox">
+    <input type="text" id="resetContact" placeholder="Email / No HP">
+    <input type="password" id="newPassword" placeholder="Password Baru">
+    <input type="text" id="resetCaptchaInput" placeholder="Captcha">
+    <button onclick="resetPassword()">Reset Password</button>
+    <p id="resetMsg" class="success hidden">Password berhasil direset!</p>
+    <p id="resetError" class="error hidden">Data tidak ditemukan atau captcha belum dicentang.</p>
+    <p><a href="#" onclick="showLogin()">Kembali ke Login</a></p>
+  </div>
+
+  <div class="box hidden" id="qrBox">
+    <h2>Selamat Datang!</h2>
+    <img id="profilePhotoDisplay" class="profile-photo" src="" alt="Foto Profil">
+    <div class="profile-info" id="profileInfo"></div>
+    <h3>Scan DANA Kaget di bawah ini</h3>
+    <canvas id="qr"></canvas>
+  </div>
+  
+  <script>
+  const users = [];
+  let currentUser = null;
+  let currentCaptcha = null;
+
+  const captchaQuestions = [
+    { q: "Berapa 2 + 3?", a: "5" },
+    { q: "Apa warna langit saat cerah?", a: "biru" },
+    { q: "Huruf pertama dari DANA?", a: "d" },
+    { q: "Berapa hasil 10 - 4?", a: "6" },
+    { q: "Apa lawan kata dari besar?", a: "kecil" },
+    { q: "Hari setelah Jumat?", a: "sabtu" },
+    { q: "Berapa 3 x 3?", a: "9" },
+    { q: "Apa warna daun?", a: "hijau" }
+  ];
+
+  function setCaptcha(fieldId) {
+    const random = captchaQuestions[Math.floor(Math.random() * captchaQuestions.length)];
+    currentCaptcha = random;
+    document.getElementById(fieldId).placeholder = random.q + " (Captcha)";
+  }
+
+  function getNow() {
+    const now = new Date();
+    return now.toLocaleString('id-ID');
+  }
+
+  function hideAll() {
+    document.getElementById("loginBox").classList.add("hidden");
+    document.getElementById("registerBox").classList.add("hidden");
+    document.getElementById("resetBox").classList.add("hidden");
+    document.getElementById("qrBox").classList.add("hidden");
+    document.querySelectorAll(".error, .success").forEach(el => el.classList.add("hidden"));
+  }
+
+  function showLogin() {
+    hideAll();
+    document.getElementById("loginBox").classList.remove("hidden");
+    document.getElementById("title").textContent = "Login untuk akses DANA Kaget";
+    setCaptcha("loginCaptchaInput");
+  }
+
+  function showRegister() {
+    hideAll();
+    document.getElementById("registerBox").classList.remove("hidden");
+    document.getElementById("title").textContent = "Daftar Akun Baru";
+    setCaptcha("regCaptchaInput");
+  }
+
+  function showReset() {
+    hideAll();
+    document.getElementById("resetBox").classList.remove("hidden");
+    document.getElementById("title").textContent = "Reset Password";
+    setCaptcha("resetCaptchaInput");
+  }
+
+  function register() {
+    const username = document.getElementById("regUsername").value.trim();
+    const email = document.getElementById("regEmail").value.trim();
+    const phone = document.getElementById("regPhone").value.trim();
+    const dob = document.getElementById("regDob").value;
+    const password = document.getElementById("regPassword").value.trim();
+    const captcha = document.getElementById("regCaptchaInput").value.trim().toLowerCase();
+    const ageConfirmed = document.getElementById("regAge").checked;
+    const rulesConfirmed = document.getElementById("regRules").checked;
+    const photoInput = document.getElementById("regPhoto");
+    const errorBox = document.getElementById("regError");
+
+    const isGmail = email.endsWith("@gmail.com");
+    const isValidPhone = phone.startsWith("08") || phone.startsWith("+62") || phone.startsWith("62");
+
+    if (!username || !email || !phone || !dob || !password || !captcha || !ageConfirmed || !rulesConfirmed || !photoInput.files.length) {
+      errorBox.textContent = "Isi semua data & centang semua pernyataan, termasuk upload foto.";
+      errorBox.classList.remove("hidden");
+      return;
+    }
+
+    if (!isGmail) {
+      errorBox.textContent = "Hanya email @gmail.com yang diperbolehkan.";
+      errorBox.classList.remove("hidden");
+      return;
+    }
+
+    if (!isValidPhone) {
+      errorBox.textContent = "Nomor HP harus diawali dengan 08, +62, atau 62.";
+      errorBox.classList.remove("hidden");
+      return;
+    }
+
+    if (captcha !== currentCaptcha.a.toLowerCase()) {
+      errorBox.textContent = "Jawaban captcha salah.";
+      errorBox.classList.remove("hidden");
+      return;
+    }
+
+    const reader = new FileReader();
+    reader.onload = function(e) {
+      const photoData = e.target.result;
+      users.push({ username, email, phone, dob, password, photo: photoData, registeredAt: getNow() });
+      document.getElementById("regSuccess").classList.remove("hidden");
+      errorBox.classList.add("hidden");
+      setTimeout(showLogin, 2000);
+    };
+    reader.readAsDataURL(photoInput.files[0]);
+  }
+
+  function login() {
+    const input = document.getElementById("loginInput").value.trim();
+    const pass = document.getElementById("loginPassword").value.trim();
+    const captcha = document.getElementById("loginCaptchaInput").value.trim().toLowerCase();
+
+    const user = users.find(u =>
+      (u.username === input || u.email === input || u.phone === input) && u.password === pass
+    );
+
+    if (user && captcha === currentCaptcha.a.toLowerCase()) {
+      currentUser = user;
+      hideAll();
+      document.getElementById("qrBox").classList.remove("hidden");
+      document.getElementById("title").textContent = `Selamat Datang, ${user.username}!`;
+      document.getElementById("profilePhotoDisplay").src = user.photo;
+
+      const profileHTML = `
+        <strong>Nama Pengguna:</strong> ${user.username}<br>
+        <strong>Email:</strong> ${user.email}<br>
+        <strong>No HP:</strong> ${user.phone}<br>
+        <strong>Tanggal Lahir:</strong> ${user.dob || 'Tidak tersedia'}<br>
+        <strong>Status:</strong> Terverifikasi ✅<br>
+        <strong>Terdaftar:</strong> ${user.registeredAt}
+      `;
+      document.getElementById("profileInfo").innerHTML = profileHTML;
+
+      new QRious({
+        element: document.getElementById('qr'),
+        value: "https://link.dana.id/danakaget?c=sayln6ugg&r=blTmh3&orderId=20250619101214357915010300166056829043068",
+        size: 250
+      });
+    } else {
+      document.getElementById("loginError").classList.remove("hidden");
+    }
+  }
+
+  function resetPassword() {
+    const contact = document.getElementById("resetContact").value.trim();
+    const newPass = document.getElementById("newPassword").value.trim();
+    const captcha = document.getElementById("resetCaptchaInput").value.trim().toLowerCase();
+
+    const user = users.find(u => u.email === contact || u.phone === contact);
+    if (user && captcha === currentCaptcha.a.toLowerCase()) {
+      user.password = newPass;
+      document.getElementById("resetMsg").classList.remove("hidden");
+    } else {
+      document.getElementById("resetError").classList.remove("hidden");
+    }
+  }
+
+  showLogin();
+</script>
+
+<!-- ✅ Tambahan sumber footer -->
+<footer style="margin-top: 40px; font-size: 14px; color: #fff;">
+  &copy; 2025 Sumber: <strong>AGUNG FITRIADI</strong>
+</footer>
+
+</body>
+</html>
