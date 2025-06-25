@@ -1249,6 +1249,38 @@ function sendVerificationEmail() {
     });
 }
 
+
+
+
+function register() {
+  const email = document.getElementById("email").value.trim();
+  const password = document.getElementById("password").value.trim();
+  const name = document.getElementById("name") ? document.getElementById("name").value.trim() : "Pengguna";
+
+  if (!email || !password) {
+    alert("Email dan password harus diisi.");
+    return;
+  }
+
+  auth.createUserWithEmailAndPassword(email, password)
+    .then((userCredential) => {
+      const user = userCredential.user;
+      return user.sendEmailVerification().then(() => {
+        return db.collection("users").doc(user.uid).set({
+          email: email,
+          name: name,
+          createdAt: firebase.firestore.FieldValue.serverTimestamp()
+        });
+      });
+    })
+    .then(() => {
+      alert("✅ Pendaftaran berhasil! Link verifikasi telah dikirim ke Gmail Anda.");
+    })
+    .catch((error) => {
+      alert("Gagal daftar: " + error.message);
+    });
+}
+
 </script>
 
 <script>
@@ -1530,6 +1562,38 @@ function sendVerificationEmail() {
     })
     .catch(err => {
       alert("❌ Gagal daftar/verifikasi: " + err.message);
+    });
+}
+
+
+
+
+function register() {
+  const email = document.getElementById("email").value.trim();
+  const password = document.getElementById("password").value.trim();
+  const name = document.getElementById("name") ? document.getElementById("name").value.trim() : "Pengguna";
+
+  if (!email || !password) {
+    alert("Email dan password harus diisi.");
+    return;
+  }
+
+  auth.createUserWithEmailAndPassword(email, password)
+    .then((userCredential) => {
+      const user = userCredential.user;
+      return user.sendEmailVerification().then(() => {
+        return db.collection("users").doc(user.uid).set({
+          email: email,
+          name: name,
+          createdAt: firebase.firestore.FieldValue.serverTimestamp()
+        });
+      });
+    })
+    .then(() => {
+      alert("✅ Pendaftaran berhasil! Link verifikasi telah dikirim ke Gmail Anda.");
+    })
+    .catch((error) => {
+      alert("Gagal daftar: " + error.message);
     });
 }
 
