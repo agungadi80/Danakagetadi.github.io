@@ -890,7 +890,7 @@ function login() {
   }, 10000);
 
   if (input.includes("@")) {
-    logDebug('🔐 Login Firebase...');
+    logDebug('🔐 Login Akun...');
 auth.signInWithEmailAndPassword(input, pass)
       .then(user => {
         clearTimeout(loginTimeout);
