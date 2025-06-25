@@ -3,18 +3,115 @@
 <html lang="id">
 
 <head>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
   <meta charset="UTF-8">
 
   <title>DANA Kaget - Login Aman</title>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrious/4.0.2/qrious.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrious/4.0.2/qrious.min.js">
+  if (!email.endsWith("@gmail.com")) {
+    alert("Masukkan email @gmail.com yang valid.");
+    return;
+  }
+  alert("✅ Kode verifikasi berhasil dikirim. Silakan cek Gmail atau folder spam.");
+}
 
-  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
+function sendVerificationEmail() {
+  const email = document.getElementById("regEmail").value.trim();
+  const password = document.getElementById("regPassword")?.value.trim() || "defaultPassword123";
 
-  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-auth-compat.js"></script>
+  if (!email || !email.endsWith("@gmail.com")) {
+    alert("Masukkan email @gmail.com yang valid.");
+    return;
+  }
 
-  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore-compat.js"></script>
+  firebase.auth().createUserWithEmailAndPassword(email, password)
+    .then(userCredential => {
+      userCredential.user.sendEmailVerification()
+        .then(() => {
+          alert("✅ Link verifikasi dikirim ke Gmail. Silakan klik untuk mengaktifkan akun.");
+        });
+    })
+    .catch(err => {
+      alert("❌ Gagal daftar/verifikasi: " + err.message);
+    });
+}
+
+</script>
+
+
+  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js">
+function sendVerificationEmail() {
+  const email = document.getElementById("regEmail").value.trim();
+  const password = document.getElementById("regPassword")?.value.trim() || "defaultPassword123";
+
+  if (!email || !email.endsWith("@gmail.com")) {
+    alert("Masukkan email @gmail.com yang valid.");
+    return;
+  }
+
+  firebase.auth().createUserWithEmailAndPassword(email, password)
+    .then(userCredential => {
+      userCredential.user.sendEmailVerification()
+        .then(() => {
+          alert("✅ Link verifikasi dikirim ke Gmail. Silakan klik untuk mengaktifkan akun.");
+        });
+    })
+    .catch(err => {
+      alert("❌ Gagal daftar/verifikasi: " + err.message);
+    });
+}
+
+</script>
+
+  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-auth-compat.js">
+function sendVerificationEmail() {
+  const email = document.getElementById("regEmail").value.trim();
+  const password = document.getElementById("regPassword")?.value.trim() || "defaultPassword123";
+
+  if (!email || !email.endsWith("@gmail.com")) {
+    alert("Masukkan email @gmail.com yang valid.");
+    return;
+  }
+
+  firebase.auth().createUserWithEmailAndPassword(email, password)
+    .then(userCredential => {
+      userCredential.user.sendEmailVerification()
+        .then(() => {
+          alert("✅ Link verifikasi dikirim ke Gmail. Silakan klik untuk mengaktifkan akun.");
+        });
+    })
+    .catch(err => {
+      alert("❌ Gagal daftar/verifikasi: " + err.message);
+    });
+}
+
+</script>
+
+  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore-compat.js">
+function sendVerificationEmail() {
+  const email = document.getElementById("regEmail").value.trim();
+  const password = document.getElementById("regPassword")?.value.trim() || "defaultPassword123";
+
+  if (!email || !email.endsWith("@gmail.com")) {
+    alert("Masukkan email @gmail.com yang valid.");
+    return;
+  }
+
+  firebase.auth().createUserWithEmailAndPassword(email, password)
+    .then(userCredential => {
+      userCredential.user.sendEmailVerification()
+        .then(() => {
+          alert("✅ Link verifikasi dikirim ke Gmail. Silakan klik untuk mengaktifkan akun.");
+        });
+    })
+    .catch(err => {
+      alert("❌ Gagal daftar/verifikasi: " + err.message);
+    });
+}
+
+</script>
 
   <style>
 
@@ -134,6 +231,17 @@
 
 <body>
 
+<div id="debugLog" style="background:#000;color:#0f0;padding:8px;font-size:12px;white-space:pre-wrap;display:none;"></div>
+<script>
+  function logDebug(msg) {
+    const box = document.getElementById("debugLog");
+    if (!box) return;
+    box.style.display = "block";
+    box.textContent += "\n" + msg;
+  }
+</script>
+
+
 
 
 <div style="background-color: #fff8dc; color: black; border: 2px solid red; padding: 10px; margin-bottom: 20px; border-radius: 10px;">
@@ -148,7 +256,121 @@
 
 <h2 id="title">Login untuk akses DANA Kaget</h2>
 
+<select id="themeSelector" onchange="changeTheme()" style="margin-bottom: 10px; padding: 8px; border-radius: 6px;">
+  <option value="#0097E6">Biru Default</option>
+  <option value="#e74c3c">Merah</option>
+  <option value="#2ecc71">Hijau</option>
+  <option value="#f1c40f">Kuning</option>
+  <option value="#8e44ad">Ungu</option>
+  <option value="#34495e">Biru Gelap</option>
+  <option value="#1abc9c">Toska</option>
+  <option value="#ff7f50">Oranye</option>
+  <option value="#ff69b4">Pink</option>
+  <option value="#2c3e50">Abu Gelap</option>
+  <option value="#7f8c8d">Abu Terang</option>
+  <option value="#cd5c5c">Indian Red</option>
+  <option value="#F08080">Merah Muda Coral</option>
+<option value="#FA8072">Salmon</option>
+<option value="#E9967A">Salmon Gelap</option>
+<option value="#FFA07A">Salmon Muda</option>
+<option value="#DC143C">Merah Crimson</option>
+<option value="#FF0000">Merah</option>
+<option value="#B22222">Merah Tua</option>
+<option value="#8B0000">Merah Gelap</option>
+<option value="#FFC0CB">Merah Muda</option>
+<option value="#FFB6C1">Merah Muda Terang</option>
+<option value="#FF69B4">Pink Terang</option>
+<option value="#FF1493">Pink Tua</option>
+<option value="#C71585">Merah Violet</option>
+<option value="#DB7093">Ungu Muda</option>
+<option value="#FF7F50">Koral</option>
+<option value="#FF6347">Tomat</option>
+<option value="#FF4500">Merah Oranye</option>
+<option value="#FF8C00">Oranye Gelap</option>
+<option value="#FFA500">Oranye</option>
+<option value="#FFD700">Emas</option>
+<option value="#FFFF00">Kuning</option>
+<option value="#FFFFE0">Kuning Muda</option>
+<option value="#FFFACD">Kuning Lemon</option>
+<option value="#FAFAD2">Kuning Goldenrod</option>
+<option value="#FFEFD5">Krim Pepaya</option>
+<option value="#FFE4B5">Mocca</option>
+<option value="#FFDAB9">Persik Muda</option>
+<option value="#EEE8AA">Goldenrod Pucat</option>
+<option value="#F0E68C">Khaki</option>
+<option value="#BDB76B">Khaki Gelap</option>
+<option value="#E6E6FA">Lavender</option>
+<option value="#D8BFD8">Ungu Muda</option>
+<option value="#DDA0DD">Plum</option>
+<option value="#EE82EE">Ungu Terang</option>
+<option value="#DA70D6">Anggrek</option>
+<option value="#FF00FF">Fuchsia</option>
+<option value="#BA55D3">Anggrek Medium</option>
+<option value="#9370DB">Ungu Medium</option>
+<option value="#663399">Ungu Rebecca</option>
+<option value="#8A2BE2">Biru-Ungu</option>
+<option value="#9400D3">Ungu Gelap</option>
+<option value="#9932CC">Orchid Gelap</option>
+<option value="#8B008B">Magenta Gelap</option>
+<option value="#800080">Ungu</option>
+<option value="#4B0082">Indigo</option>
+<option value="#6A5ACD">Biru Slate</option>
+<option value="#483D8B">Biru Slate Gelap</option>
+<option value="#7B68EE">Biru Slate Medium</option>
+<option value="#ADFF2F">Kuning-Hijau</option>
+<option value="#7FFF00">Chartreuse</option>
+<option value="#7CFC00">Hijau Rumput</option>
+<option value="#00FF00">Hijau Terang</option>
+<option value="#32CD32">Hijau Lime</option>
+<option value="#98FB98">Hijau Pucat</option>
+<option value="#90EE90">Hijau Muda</option>
+<option value="#00FA9A">Hijau Semi</option>
+<option value="#00FF7F">Hijau Musim Semi</option>
+<option value="#3CB371">Hijau Laut Medium</option>
+<option value="#2E8B57">Hijau Laut</option>
+<option value="#228B22">Hijau Hutan</option>
+<option value="#008000">Hijau</option>
+<option value="#006400">Hijau Gelap</option>
+<option value="#9ACD32">Kuning-Hijau Cerah</option>
+<option value="#6B8E23">Hijau Zaitun Drab</option>
+<option value="#808000">Zaitun</option>
+<option value="#556B2F">Hijau Zaitun Gelap</option>
+<option value="#66CDAA">Aquamarine Medium</option>
+<option value="#8FBC8F">Hijau Laut Gelap</option>
+<option value="#20B2AA">Hijau Laut Muda</option>
+<option value="#008B8B">Sian Gelap</option>
+<option value="#008080">Teal</option>
+<option value="#00FFFF">Sian</option>
+<option value="#E0FFFF">Sian Muda</option>
+<option value="#AFEEEE">Turquoise Pucat</option>
+<option value="#7FFFD4">Aquamarine</option>
+<option value="#40E0D0">Turquoise</option>
+<option value="#48D1CC">Turquoise Medium</option>
+<option value="#00CED1">Turquoise Gelap</option>
+<option value="#5F9EA0">Biru Kadet</option>
+<option value="#4682B4">Biru Baja</option>
+<option value="#B0C4DE">Biru Baja Terang</option>
+<option value="#B0E0E6">Biru Bedak</option>
+<option value="#ADD8E6">Biru Muda</option>
+<option value="#87CEEB">Biru Langit</option>
+<option value="#87CEFA">Biru Langit Muda</option>
+<option value="#00BFFF">Biru Langit Dalam</option>
+<option value="#1E90FF">Biru Dodger</option>
+<option value="#6495ED">Biru Jagung</option>
+<option value="#4169E1">Biru Kerajaan</option>
+<option value="#0000FF">Biru</option>
+<option value="#0000CD">Biru Medium</option>
+<option value="#00008B">Biru Gelap</option>
+<option value="#000080">Navy</option>
+<option value="#191970">Biru Tengah Malam</option>
+<option value="#FFA07A">Salmon Muda 2</option>
+  <option value="#000000">Hitam</option>
+</select>
 
+<!-- Toggle Mode Gelap -->
+<label style="display: block; margin-bottom: 20px;">
+  <input type="checkbox" id="darkModeToggle" onchange="toggleDarkMode()"> Aktifkan Mode Gelap
+</label>
 
 <!-- Box Loading -->
 
@@ -156,49 +378,43 @@
 
 
 
-<!-- Box Login -->
-
 <div class="box" id="loginBox">
 
   <input type="text" id="loginInput" placeholder="Email / No HP / Username">
-
-  <input type="password" id="loginPassword" placeholder="Password">
-
+  <div style="position: relative; width: 90%; margin: 8px auto;">
+    <input type="password" id="loginPassword" placeholder="Password" style="padding-right: 40px;">
+    <i class="fa-regular fa-eye" onclick="togglePassword('loginPassword', this)" style="
+      position: absolute;
+      right: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      cursor: pointer;
+      color: gray;
+      font-size: 18px;
+    "></i>
+  </div>
   <input type="text" id="loginCaptchaInput" placeholder="Captcha">
-
   <p id="loginError" class="error hidden">Login gagal!</p>
-
   <button onclick="login()">Login</button>
   
   <p style="margin-top:10px;">Atau gunakan akun Google untuk login lebih cepat</p>
 
-<!-- Tambahan tombol Google -->
-<button onclick="loginWithGoogle()" style="margin-top: 10px; background-color: #DB4437;">
-  Login dengan Google
-</button>
+  <button onclick="loginWithGoogle()" style="margin-top: 10px; background-color: #DB4437;">
+    Login dengan Google
+  </button>
 
-<p>Belum punya akun? <a href="#" onclick="showRegister()">Daftar</a> | <a href="#" onclick="showReset()">Reset Sandi</a></p>
+  <div style="margin-top: 20px;">
+    <strong>Butuh Bantuan?</strong>
+    <p style="font-size: 14px;">
+      <a href="https://wa.me/6285769302532?text=Halo%20Admin%2C%20saya%20butuh%20bantuan%20login%20DANA%20Kaget" target="_blank">WhatsApp Admin</a> |
+      <a href="mailto: hanryreskyy@gmail.com?subject=Bantuan%20Login%20DANA%20Kaget">Email</a> |
+      <a href="https://t.me/Agungadi80" target="_blank">Telegram</a> |
+      <a href="https://instagram.com/agungadi57" target="_blank">Instagram</a>
+    </p>
+  </div>
+
+  <p>Belum punya akun? <a href="#" onclick="showRegister()">Daftar</a> | <a href="#" onclick="showReset()">Reset Sandi</a></p>
 </div>
-
-
-
-<!-- OTP Box -->
-
-<div class="box hidden" id="otpBox">
-
-  <p>Kode OTP telah dikirim ke <span id="otpPhoneDisplay"></span></p>
-
-  <input type="text" id="otpCode" placeholder="Masukkan kode OTP">
-
-  <p id="otpError" class="error hidden"></p>
-
-  <button onclick="verifyOTP()">Verifikasi OTP</button>
-
-</div>
-
-<div id="recaptcha-container"></div>
-
-
 
 <!-- Box Register -->
 
@@ -206,31 +422,38 @@
 
   <input type="text" id="regUsername" placeholder="Nama Pengguna">
 
-  <input type="email" id="regEmail" placeholder="Email">
+  
+<div style="display: flex; align-items: center; gap: 10px; width: 90%; margin: 8px auto;">
+  <input type="email" id="regEmail" placeholder="Email" style="flex: 1;">
+  <button type="button" onclick="sendVerificationEmail()" style="flex-shrink: 0;">Kirim Kode</button>
+</div>
 
-  <input type="tel" id="regPhone" placeholder="Nomor HP">
+<input type="tel" id="regPhone" placeholder="Nomor HP">
 
-<button onclick="sendRegisterOTP()">Kirim Kode Verifikasi</button>
 
-<small id="otpCountdown" style="display: block; margin-top: 5px;"></small>
 
-<input type="text" id="regOTP" placeholder="Masukkan Kode OTP" maxlength="6">
-
-  <input type="date" id="regDob">
-
-  <input type="password" id="regPassword" placeholder="Password">
-
+<input type="date" id="regDob">
+  <div style="position: relative; width: 90%; margin: 8px auto;">
+    <input type="password" id="regPassword" placeholder="Password" style="padding-right: 40px;">
+    <i class="fa-regular fa-eye" onclick="togglePassword('regPassword', this)" style="
+      position: absolute;
+      right: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      cursor: pointer;
+      color: gray;
+      font-size: 18px;
+    "></i>
+  </div>
   <input type="file" id="regPhoto" accept="image/*">
-
   <input type="text" id="regCaptchaInput" placeholder="Captcha">
-
   <label><input type="checkbox" id="regAge"> Saya berusia 16 tahun ke atas</label>
-
   <label><input type="checkbox" id="regRules"> Saya menyetujui syarat dan ketentuan</label>
 
   <p id="regError" class="error hidden"></p>
 
-  <button onclick="register()">Daftar</button>
+  <button onclick="daftarDenganVerifikasi()">Daftar</button>
+<button onclick="loginJikaVerifikasi()">Login Jika Sudah Verifikasi</button>
 
   <p><a href="#" onclick="showLogin()">Kembali ke Login</a></p>
 
@@ -243,17 +466,22 @@
 <div class="box hidden" id="resetBox">
 
   <input type="text" id="resetContact" placeholder="Email / No HP">
-
-  <input type="password" id="newPassword" placeholder="Password Baru">
-
+  <div style="position: relative; width: 90%; margin: 8px auto;">
+    <input type="password" id="newPassword" placeholder="Password Baru" style="padding-right: 40px;">
+    <i class="fa-regular fa-eye" onclick="togglePassword('newPassword', this)" style="
+      position: absolute;
+      right: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      cursor: pointer;
+      color: gray;
+      font-size: 18px;
+    "></i>
+  </div>
   <input type="text" id="resetCaptchaInput" placeholder="Captcha">
-
   <p id="resetError" class="error hidden"></p>
-
   <p id="resetMsg" class="success hidden">Password berhasil direset!</p>
-
   <button onclick="resetPassword()">Reset Password</button>
-
   <p><a href="#" onclick="showLogin()">Kembali ke Login</a></p>
 
 </div>
@@ -324,7 +552,6 @@ const db = firebase.firestore();
 
 
 
-let otpTimer, otpExpiresAt = null;
 
 
 
@@ -420,9 +647,7 @@ function startOTPCountdown() {
 
 // Tambahan variabel global untuk OTP
 
-let confirmationResult = null;
 
-let tempRegData = null;
 
   
 
@@ -473,16 +698,12 @@ let tempRegData = null;
 
 
   function showLogin() {
-
-    hideAll();
-
-    document.getElementById("loginBox").classList.remove("hidden");
-
-    document.getElementById("title").textContent = "Login untuk akses DANA Kaget";
-
-    setCaptcha("loginCaptchaInput");
-
-  }
+  hideAll();
+  console.log("Menampilkan login dan set captcha"); // debug
+  document.getElementById("loginBox").classList.remove("hidden");
+  document.getElementById("title").textContent = "Login untuk akses DANA Kaget";
+  setCaptcha("loginCaptchaInput");
+}
 
 
 
@@ -646,75 +867,88 @@ let tempRegData = null;
 
 
 
-  function login() {
+  
+function login() {
+  const input = loginInput.value.trim(), pass = loginPassword.value.trim(),
+        captcha = loginCaptchaInput.value.toLowerCase().trim(),
+        errBox = loginError;
 
-    const input = loginInput.value.trim(), pass = loginPassword.value.trim(),
+  errBox.classList.add("hidden");
 
-          captcha = loginCaptchaInput.value.toLowerCase().trim(),
-
-          errBox = loginError;
-
-
-
-    errBox.classList.add("hidden");
-
-
-
-    if (!input || !pass || !captcha) {
-
-      errBox.textContent = "Harap isi semua kolom login."; errBox.classList.remove("hidden"); return;
-
-    }
-
-    if (captcha !== currentCaptcha.a.toLowerCase()) {
-
-      errBox.textContent = "Captcha salah."; errBox.classList.remove("hidden"); return;
-
-    }
-
-
-
-    showLoading();
-
-    if (input.includes("@")) {
-
-      auth.signInWithEmailAndPassword(input, pass)
-
-        .then(user => db.collection("users").doc(user.user.uid).get())
-
-        .then(doc => doc.exists ? showQRPage(doc.id, doc.data()) : (showLogin(), errBox.textContent = "Akun tidak ditemukan.", errBox.classList.remove("hidden")))
-
-        .catch(() => (showLogin(), errBox.textContent = "Login gagal: email atau password salah.", errBox.classList.remove("hidden")));
-
-    } else {
-
-      db.collection("users").where("phone", "==", input).get()
-
-        .then(snap => !snap.empty ? snap : db.collection("users").where("username", "==", input).get())
-
-        .then(snap => {
-
-          if (!snap.empty) {
-
-            const doc = snap.docs[0], u = doc.data();
-
-            u.password === pass ? showQRPage(doc.id, u) : (showLogin(), errBox.textContent = "Password salah.", errBox.classList.remove("hidden"));
-
-          } else {
-
-            showLogin(); errBox.textContent = "Akun tidak ditemukan."; errBox.classList.remove("hidden");
-
-          }
-
-        }).catch(() => (showLogin(), errBox.textContent = "Kesalahan sistem saat login.", errBox.classList.remove("hidden")));
-
-    }
-
+  if (!input || !pass || !captcha) {
+    errBox.textContent = "Harap isi semua kolom login."; errBox.classList.remove("hidden"); return;
+  }
+  if (captcha !== currentCaptcha.a.toLowerCase()) {
+    errBox.textContent = "Captcha salah."; errBox.classList.remove("hidden"); return;
   }
 
+  showLoading();
+  let loginTimeout = setTimeout(() => {
+    showLogin();
+    errBox.textContent = "❌ Gagal login: koneksi lambat atau Firebase tidak responsif.";
+    errBox.classList.remove("hidden");
+  }, 10000);
+
+  if (input.includes("@")) {
+    logDebug('🔐 Login Firebase...');
+auth.signInWithEmailAndPassword(input, pass)
+      .then(user => {
+        clearTimeout(loginTimeout);
+        if (!user.user.emailVerified) {
+          showLogin();
+          errBox.textContent = "⚠️ Email belum diverifikasi. Cek Gmail Anda.";
+          errBox.classList.remove("hidden");
+          return Promise.reject(); // stop chain
+        }
+        logDebug('📧 Email sudah diverifikasi. Ambil Firestore...');
+return db.collection("users").doc(user.user.uid).get();
+      })
+      .then(doc => {
+        if (!doc?.exists) {
+          showLogin();
+          logDebug('❌ UID tidak ditemukan di Firestore.');
+errBox.textContent = "Akun tidak ditemukan.";
+          errBox.classList.remove("hidden");
+          return;
+        }
+        logDebug('✅ QR Tampil. Login Sukses!');
+showQRPage(doc.id, doc.data());
+      })
+      .catch(err => {
+        if (err) {
+          clearTimeout(loginTimeout);
+          showLogin();
+          errBox.textContent = "Login gagal: " + err.message;
+          errBox.classList.remove("hidden");
+        }
+      });
+  } else {
+    db.collection("users").where("phone", "==", input).get()
+      .then(snap => !snap.empty ? snap : db.collection("users").where("username", "==", input).get())
+      .then(snap => {
+        clearTimeout(loginTimeout);
+        if (!snap.empty) {
+          const doc = snap.docs[0], u = doc.data();
+          u.password === pass
+            ? showQRPage(doc.id, u)
+            : (showLogin(), errBox.textContent = "Password salah.", errBox.classList.remove("hidden"));
+        } else {
+          showLogin();
+          logDebug('❌ UID tidak ditemukan di Firestore.');
+errBox.textContent = "Akun tidak ditemukan.";
+          errBox.classList.remove("hidden");
+        }
+      }).catch(() => {
+        clearTimeout(loginTimeout);
+        showLogin();
+        errBox.textContent = "Kesalahan sistem saat login.";
+        errBox.classList.remove("hidden");
+      });
+  }
+}
 
 
-  function showQRPage(uid, user) {
+function showQRPage(uid, user) {
 
     try {
 
@@ -917,15 +1151,37 @@ let tempRegData = null;
 
 
   window.addEventListener("load", () => {
-    const params = new URLSearchParams(location.search);
-    const uid = params.get("uid");
-    if (uid) {
-      showLoading();
-      db.collection("users").doc(uid).get()
-        .then(doc => doc.exists ? showQRPage(uid, doc.data()) : showLogin())
-        .catch(() => showLogin());
-    } else showLogin();
+  const savedColor = localStorage.getItem("themeColor") || "#0097E6";
+  document.getElementById("themeSelector").value = savedColor;
+  applyTheme(savedColor);
+
+  const params = new URLSearchParams(location.search);
+  const uid = params.get("uid");
+  if (uid) {
+    showLoading();
+    db.collection("users").doc(uid).get()
+      .then(doc => doc.exists ? showQRPage(uid, doc.data()) : showLogin())
+      .catch(() => showLogin());
+  } else showLogin();
+});
+
+function changeTheme() {
+  const selectedColor = document.getElementById("themeSelector").value;
+  localStorage.setItem("themeColor", selectedColor);
+  applyTheme(selectedColor);
+}
+
+function applyTheme(color) {
+  document.body.style.backgroundColor = color;
+
+  const buttons = document.querySelectorAll("button");
+  buttons.forEach(btn => {
+    btn.style.backgroundColor = color;
   });
+
+  const borders = document.querySelectorAll(".profile-photo");
+  borders.forEach(el => el.style.borderColor = color);
+}
 
   function loginWithGoogle() {
     const provider = new firebase.auth.GoogleAuthProvider();
@@ -971,16 +1227,364 @@ let tempRegData = null;
         alert("Login dengan Google gagal: " + error.message);
       });
   }
+
+function sendVerificationEmail() {
+  const email = document.getElementById("regEmail").value.trim();
+  const password = document.getElementById("regPassword")?.value.trim() || "defaultPassword123";
+
+  if (!email || !email.endsWith("@gmail.com")) {
+    alert("Masukkan email @gmail.com yang valid.");
+    return;
+  }
+
+  firebase.auth().createUserWithEmailAndPassword(email, password)
+    .then(userCredential => {
+      userCredential.user.sendEmailVerification()
+        .then(() => {
+          alert("✅ Link verifikasi dikirim ke Gmail. Silakan klik untuk mengaktifkan akun.");
+        });
+    })
+    .catch(err => {
+      alert("❌ Gagal daftar/verifikasi: " + err.message);
+    });
+}
+
 </script>
 
+<script>
+  /** tampilkan popup hanya jika belum pernah ditutup **/
+  function showUpdateInfo () {
+    if (localStorage.getItem('updateSeen') === '1') return; // sudah ditutup
+    document.getElementById('updateModal').classList.remove('hidden');
+  }
+
+  /** tutup popup & simpan status **/
+  function hideUpdateInfo () {
+    const modal = document.getElementById('updateModal');
+    modal.classList.add('hidden');      // sembunyikan via class
+    modal.style.display = 'none';       // hapus display:flex bawaan
+    localStorage.setItem('updateSeen', '1');   // tandai sudah dilihat
+  }
+
+  /* munculkan otomatis 5 detik sesudah halaman siap, kalau belum dilihat */
+  window.addEventListener('DOMContentLoaded', () => {
+    setTimeout(showUpdateInfo, 5000);
+  });
+
+function sendVerificationEmail() {
+  const email = document.getElementById("regEmail").value.trim();
+  const password = document.getElementById("regPassword")?.value.trim() || "defaultPassword123";
+
+  if (!email || !email.endsWith("@gmail.com")) {
+    alert("Masukkan email @gmail.com yang valid.");
+    return;
+  }
+
+  firebase.auth().createUserWithEmailAndPassword(email, password)
+    .then(userCredential => {
+      userCredential.user.sendEmailVerification()
+        .then(() => {
+          alert("✅ Link verifikasi dikirim ke Gmail. Silakan klik untuk mengaktifkan akun.");
+        });
+    })
+    .catch(err => {
+      alert("❌ Gagal daftar/verifikasi: " + err.message);
+    });
+}
+
+</script>
+
+<div id="updateModal" class="modal hidden">
+  <div style="
+    background: white;
+    color: black;
+    max-width: 500px;
+    width: 90%;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: left;
+    position: relative;
+  ">
+    <button onclick="hideUpdateInfo()" style="
+      position: absolute;
+      top: 10px; right: 10px;
+      background-color: red;
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 30px;
+      height: 30px;
+      font-weight: bold;
+      cursor: pointer;
+    ">×</button>
+
+    <h3>📝 UPDATE FITUR DAGET KLAIM</h3>
+    
+    <h4>Versi 2.0</h4>
+    <ul>
+      <li>✅ Tambahan verifikasi OTP saat daftar</li>
+      <li>✅ Login menggunakan akun Google</li>
+      <li>⚠️ Perbaikan bug login dan captcha</li>
+      <li>⚠️ OTP SMS belum aktif (fitur berbayar)</li>
+    </ul>,
+
+    <h4>Versi 3.0</h4>
+    <ul>
+      <li>🎨 Penambahan pilihan Tema Warna</li>
+      <li>🌈 12 warna berbeda tersedia</li>
+      <li>⚠️ Login Google masih mengalami error</li>
+    </ul>
+    
+    <h4>Versi 4.0</h4>
+<ul>
+  <li>✅ Tombol "Butuh Bantuan" tersedia untuk lapor admin</li>
+  <li>✅ Pop-up info versi otomatis muncul saat halaman dibuka</li>
+  <li>✅ Penambahan 100+ warna tema telah tersedia</li>
+  <li>⚠️ Login Google / Daftar sedang error (dalam perbaikan)</li>
+</ul>
+<p>Jika kamu menemukan bug atau ingin menambahkan fitur, silakan klik tombol <strong>Butuh Bantuan</strong> untuk lapor ke admin.</p>
+  </div>
+</div>
+
 <footer style="margin-top: 40px; font-size: 14px; color: #fff;">
-
   &copy; 2025 Sumber: <strong>AGUNG FITRIADI</strong>
-
 </footer>
 
+<script>
+  function showUpdateInfo() {
+    document.getElementById("updateModal").classList.remove("hidden");
+  }
+  function hideUpdateInfo() {
+    document.getElementById("updateModal").classList.add("hidden");
+  }
+  
+  
 
+
+function sendVerificationEmail() {
+  const email = document.getElementById("regEmail").value.trim();
+  const password = document.getElementById("regPassword")?.value.trim() || "defaultPassword123";
+
+  if (!email || !email.endsWith("@gmail.com")) {
+    alert("Masukkan email @gmail.com yang valid.");
+    return;
+  }
+
+  firebase.auth().createUserWithEmailAndPassword(email, password)
+    .then(userCredential => {
+      userCredential.user.sendEmailVerification()
+        .then(() => {
+          alert("✅ Link verifikasi dikirim ke Gmail. Silakan klik untuk mengaktifkan akun.");
+        });
+    })
+    .catch(err => {
+      alert("❌ Gagal daftar/verifikasi: " + err.message);
+    });
+}
+
+</script>
+
+
+
+<script>
+function togglePassword(fieldId, iconElement) {
+  const input = document.getElementById(fieldId);
+  const isHidden = input.type === "password";
+  input.type = isHidden ? "text" : "password";
+  iconElement.classList.toggle("fa-eye");
+  iconElement.classList.toggle("fa-eye-slash");
+}
+
+function sendVerificationEmail() {
+  const email = document.getElementById("regEmail").value.trim();
+  const password = document.getElementById("regPassword")?.value.trim() || "defaultPassword123";
+
+  if (!email || !email.endsWith("@gmail.com")) {
+    alert("Masukkan email @gmail.com yang valid.");
+    return;
+  }
+
+  firebase.auth().createUserWithEmailAndPassword(email, password)
+    .then(userCredential => {
+      userCredential.user.sendEmailVerification()
+        .then(() => {
+          alert("✅ Link verifikasi dikirim ke Gmail. Silakan klik untuk mengaktifkan akun.");
+        });
+    })
+    .catch(err => {
+      alert("❌ Gagal daftar/verifikasi: " + err.message);
+    });
+}
+
+</script>
+
+
+<!-- Firebase App (the core Firebase SDK) -->
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js">
+function sendVerificationEmail() {
+  const email = document.getElementById("regEmail").value.trim();
+  const password = document.getElementById("regPassword")?.value.trim() || "defaultPassword123";
+
+  if (!email || !email.endsWith("@gmail.com")) {
+    alert("Masukkan email @gmail.com yang valid.");
+    return;
+  }
+
+  firebase.auth().createUserWithEmailAndPassword(email, password)
+    .then(userCredential => {
+      userCredential.user.sendEmailVerification()
+        .then(() => {
+          alert("✅ Link verifikasi dikirim ke Gmail. Silakan klik untuk mengaktifkan akun.");
+        });
+    })
+    .catch(err => {
+      alert("❌ Gagal daftar/verifikasi: " + err.message);
+    });
+}
+
+</script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js">
+function sendVerificationEmail() {
+  const email = document.getElementById("regEmail").value.trim();
+  const password = document.getElementById("regPassword")?.value.trim() || "defaultPassword123";
+
+  if (!email || !email.endsWith("@gmail.com")) {
+    alert("Masukkan email @gmail.com yang valid.");
+    return;
+  }
+
+  firebase.auth().createUserWithEmailAndPassword(email, password)
+    .then(userCredential => {
+      userCredential.user.sendEmailVerification()
+        .then(() => {
+          alert("✅ Link verifikasi dikirim ke Gmail. Silakan klik untuk mengaktifkan akun.");
+        });
+    })
+    .catch(err => {
+      alert("❌ Gagal daftar/verifikasi: " + err.message);
+    });
+}
+
+</script>
+<script>
+  const firebaseConfig = {
+    apiKey: "API_KEY_ANDA",
+    authDomain: "PROJECT_ID.firebaseapp.com",
+    projectId: "PROJECT_ID",
+    appId: "APP_ID"
+  };
+  firebase.initializeApp(firebaseConfig);
+  const auth = firebase.auth();
+
+  const actionCodeSettings = {
+    url: window.location.href,
+    handleCodeInApp: true
+  };
+
+      if (!email.endsWith("@gmail.com")) {
+      alert("Masukkan email @gmail.com yang valid.");
+      return;
+    }
+    auth.sendSignInLinkToEmail(email, actionCodeSettings)
+      .then(() => {
+        alert("✅ Link verifikasi berhasil dikirim. Silakan cek Gmail atau folder spam.");
+        window.localStorage.setItem('emailForSignIn', email);
+      })
+      .catch(err => {
+        alert("Gagal mengirim email: " + err.message);
+      });
+  }
+
+  window.addEventListener('load', function () {
+    if (auth.isSignInWithEmailLink(window.location.href)) {
+      let email = window.localStorage.getItem('emailForSignIn');
+      if (!email) {
+        email = prompt('Masukkan email Anda untuk login:');
+      }
+      auth.signInWithEmailLink(email, window.location.href)
+        .then((result) => {
+          alert("✅ Anda berhasil login sebagai " + result.user.email);
+          window.localStorage.removeItem('emailForSignIn');
+        })
+        .catch(error => {
+          alert("❌ Login gagal: " + error.message);
+        });
+    }
+  });
+
+function sendVerificationEmail() {
+  const email = document.getElementById("regEmail").value.trim();
+  const password = document.getElementById("regPassword")?.value.trim() || "defaultPassword123";
+
+  if (!email || !email.endsWith("@gmail.com")) {
+    alert("Masukkan email @gmail.com yang valid.");
+    return;
+  }
+
+  firebase.auth().createUserWithEmailAndPassword(email, password)
+    .then(userCredential => {
+      userCredential.user.sendEmailVerification()
+        .then(() => {
+          alert("✅ Link verifikasi dikirim ke Gmail. Silakan klik untuk mengaktifkan akun.");
+        });
+    })
+    .catch(err => {
+      alert("❌ Gagal daftar/verifikasi: " + err.message);
+    });
+}
+
+</script>
+
+
+<script>
+function daftarDenganVerifikasi() {
+  const email = document.getElementById("regEmail")?.value.trim();
+  const password = document.getElementById("regPassword")?.value.trim();
+  const nama = document.getElementById("regNama")?.value.trim();
+  const nohp = document.getElementById("regNoHp")?.value.trim();
+
+  if (!email || !password || !nama || !nohp) {
+    alert("⚠️ Lengkapi semua data terlebih dahulu.");
+    return;
+  }
+
+  firebase.auth().createUserWithEmailAndPassword(email, password)
+    .then((userCredential) => {
+      const user = userCredential.user;
+      user.sendEmailVerification().then(() => {
+        alert("📩 Link verifikasi telah dikirim ke Gmail Anda. Silakan klik link tersebut.");
+      });
+    })
+    .catch((error) => {
+      alert("❌ Gagal daftar: " + error.message);
+    });
+}
+
+function loginJikaVerifikasi() {
+  const email = document.getElementById("regEmail")?.value.trim();
+  const password = document.getElementById("regPassword")?.value.trim();
+
+  if (!email || !password) {
+    alert("⚠️ Masukkan email dan password.");
+    return;
+  }
+
+  firebase.auth().signInWithEmailAndPassword(email, password)
+    .then((userCredential) => {
+      const user = userCredential.user;
+      if (user.emailVerified) {
+        alert("✅ Email terverifikasi! Akun Anda berhasil dibuat. Silakan login.");
+        // Redirect jika perlu: window.location.href = "login.html";
+      } else {
+        alert("⚠️ Email Anda belum diverifikasi. Silakan cek Gmail Anda.");
+        user.sendEmailVerification();
+      }
+    })
+    .catch((error) => {
+      alert("❌ Gagal login: " + error.message);
+    });
+}
+</script>
 
 </body>
-
 </html>
