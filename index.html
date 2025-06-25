@@ -1651,4 +1651,42 @@ function loginJikaVerifikasi() {
 </script>
 
 </body>
+
+<script>
+function sendVerificationEmail() {
+  const email = document.getElementById("regEmail").value.trim();
+  const password = document.getElementById("regPassword")?.value.trim() || "defaultPassword123";
+  const username = document.getElementById("regUsername")?.value.trim() || "Pengguna";
+  const phone = document.getElementById("regPhone")?.value.trim() || "-";
+  const dob = document.getElementById("regDob")?.value || "-";
+
+  if (!email || !email.endsWith("@gmail.com")) {
+    alert("Masukkan email @gmail.com yang valid.");
+    return;
+  }
+
+  firebase.auth().createUserWithEmailAndPassword(email, password)
+    .then(userCredential => {
+      const user = userCredential.user;
+
+      return user.sendEmailVerification().then(() => {
+        return db.collection("users").doc(user.uid).set({
+          username,
+          email,
+          phone,
+          dob,
+          photo: "", // default foto
+          registeredAt: new Date().toISOString()
+        });
+      });
+    })
+    .then(() => {
+      alert("✅ Link verifikasi dikirim ke Gmail dan data akun disimpan.");
+    })
+    .catch(err => {
+      alert("❌ Gagal daftar/verifikasi: " + err.message);
+    });
+}
+</script>
+
 </html>
