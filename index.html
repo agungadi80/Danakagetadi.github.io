@@ -1,15 +1,13 @@
 <!DOCTYPE html>
 
 <html lang="id">
-
 <head>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
-  <meta charset="UTF-8">
-
-  <title>DANA Kaget - Login Aman</title>
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrious/4.0.2/qrious.min.js">
+<link href="https://fonts.googleapis.com/css2?family=Poppins&amp;family=Roboto&amp;family=Open+Sans&amp;family=Lato&amp;family=Montserrat&amp;family=Raleway&amp;family=Oswald&amp;family=Merriweather&amp;family=Noto+Sans&amp;family=Ubuntu&amp;family=Playfair+Display&amp;family=Rubik&amp;family=Source+Sans+Pro&amp;family=Nunito&amp;family=PT+Sans&amp;family=Quicksand&amp;family=Work+Sans&amp;family=Mukta&amp;family=Libre+Franklin&amp;family=Fira+Sans&amp;family=Inconsolata&amp;family=Cabin&amp;family=Oxygen&amp;family=Bebas+Neue&amp;family=Exo&amp;family=Cairo&amp;family=Titillium+Web&amp;family=Dosis&amp;family=Manrope&amp;family=Barlow&amp;family=Hind&amp;family=Heebo&amp;family=Josefin+Sans&amp;family=Asap&amp;family=Zilla+Slab&amp;family=Arvo&amp;family=Prompt&amp;family=Signika&amp;family=Tajawal&amp;family=Lobster&amp;family=Overpass&amp;family=Karla&amp;family=Questrial&amp;family=Varela+Round&amp;family=Anton&amp;family=Fjalla+One&amp;family=IBM+Plex+Sans&amp;family=Spectral&amp;family=Crimson+Text&amp;family=DM+Sans&amp;family=Lexend&amp;family=Chivo&amp;family=Abel&amp;family=Ropa+Sans&amp;family=Amaranth&amp;family=Teko&amp;family=Catamaran&amp;family=Jost&amp;family=Didact+Gothic&amp;family=Poiret+One&amp;family=Saira&amp;family=Bitter&amp;family=Acme&amp;family=Mada&amp;family=Cormorant+Garamond&amp;family=Space+Grotesk&amp;family=Unna&amp;family=Gudea&amp;family=Kanit&amp;family=Assistant&amp;family=Martel&amp;family=Vollkorn&amp;family=Exo+2&amp;family=Pathway+Extreme&amp;family=Kumbh+Sans&amp;family=Sora&amp;family=Jura&amp;family=Urbanist&amp;family=Caveat&amp;family=Changa&amp;family=Nanum+Gothic&amp;family=Bai+Jamjuree&amp;family=Public+Sans&amp;family=Pontano+Sans&amp;family=Spartan&amp;family=Noto+Serif&amp;family=Merriweather+Sans&amp;family=Alegreya+Sans&amp;family=Lora&amp;family=Slabo+27px&amp;family=Domine&amp;family=Kreon&amp;family=Tinos&amp;family=M+PLUS+1p&amp;family=Spectral+SC&amp;family=Rasa&amp;family=Azeret+Mono&amp;family=Cousine&amp;family=Fira+Code&amp;family=JetBrains+Mono&amp;family=Share+Tech+Mono&amp;family=Courier+Prime&amp;family=Libre+Baskerville&amp;family=EB+Garamond&amp;family=Tangerine&amp;family=Satisfy&amp;family=Great+Vibes&amp;family=Dancing+Script&amp;family=Pacifico&amp;family=Yellowtail&amp;family=Gloria+Hallelujah&amp;family=Indie+Flower&amp;family=Shadows+Into+Light&amp;family=Handlee&amp;family=Coming+Soon&amp;family=Rock+Salt&amp;family=Caveat+Brush&amp;family=Patrick+Hand&amp;family=Architects+Daughter&amp;family=Reenie+Beanie&amp;family=Permanent+Marker&amp;family=Chewy&amp;family=Abril+Fatface&amp;family=Cinzel&amp;family=Play&amp;family=Covered+By+Your+Grace&amp;family=Nothing+You+Could+Do&amp;family=Homemade+Apple&amp;family=Neucha&amp;family=Courgette&amp;family=Baloo+2&amp;family=Baloo+Tamma+2&amp;family=Itim&amp;family=Kosugi+Maru&amp;family=Padauk&amp;family=Gochi+Hand&amp;family=Nerko+One&amp;family=Viga&amp;family=Skranji&amp;family=Aref+Ruqaa&amp;family=Almarai&amp;family=Timmana&amp;family=Andika&amp;family=Ranchers&amp;family=Carter+One&amp;family=Secular+One&amp;family=Francois+One&amp;family=Yatra+One&amp;family=Ma+Shan+Zheng&amp;family=Bungee&amp;family=Coda&amp;family=Orbitron&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&amp;family=Dancing+Script&amp;family=Fira+Sans&amp;family=Inconsolata&amp;family=Lato&amp;family=Lobster&amp;family=Merriweather&amp;family=Montserrat&amp;family=Open+Sans&amp;family=Oswald&amp;family=Playfair+Display&amp;family=Poppins&amp;family=Raleway&amp;family=Roboto&amp;family=Rubik&amp;family=Ubuntu&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet"/>
+<meta charset="utf-8"/>
+<title>DANA Kaget - Login Aman</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrious/4.0.2/qrious.min.js">
   if (!email.endsWith("@gmail.com")) {
     alert("Masukkan email @gmail.com yang valid.");
     return;
@@ -39,9 +37,7 @@ function sendVerificationEmail() {
 }
 
 </script>
-
-
-  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js">
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js">
 function sendVerificationEmail() {
   const email = document.getElementById("regEmail").value.trim();
   const password = document.getElementById("regPassword")?.value.trim() || "defaultPassword123";
@@ -64,8 +60,7 @@ function sendVerificationEmail() {
 }
 
 </script>
-
-  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-auth-compat.js">
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-auth-compat.js">
 function sendVerificationEmail() {
   const email = document.getElementById("regEmail").value.trim();
   const password = document.getElementById("regPassword")?.value.trim() || "defaultPassword123";
@@ -88,8 +83,7 @@ function sendVerificationEmail() {
 }
 
 </script>
-
-  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore-compat.js">
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore-compat.js">
 function sendVerificationEmail() {
   const email = document.getElementById("regEmail").value.trim();
   const password = document.getElementById("regPassword")?.value.trim() || "defaultPassword123";
@@ -112,8 +106,7 @@ function sendVerificationEmail() {
 }
 
 </script>
-
-  <style>
+<style>
 
     body {
 
@@ -226,11 +219,44 @@ function sendVerificationEmail() {
     }
 
   </style>
-
-</head>
-
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Roboto&amp;family=Poppins&amp;family=Playfair+Display&amp;display=swap" rel="stylesheet"/>
+<style>
+body, input, button, label, select, textarea {
+  font-family: 'Poppins', sans-serif;
+}
+</style>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Roboto&amp;family=Poppins&amp;family=Playfair+Display&amp;family=Open+Sans&amp;family=Montserrat&amp;family=Lobster&amp;family=Oswald&amp;display=swap" rel="stylesheet"/>
+<style>
+body, input, button, label, select, textarea {
+  font-family: 'Poppins', sans-serif;
+}
+#fontSelector {
+  margin: 10px 0;
+  padding: 4px;
+}
+</style>
+<link href="https://fonts.googleapis.com/css2?family=Sarabun&amp;family=Fugaz+One&amp;family=Mitr&amp;family=Prompt&amp;family=Suez+One&amp;family=Trirong&amp;family=Athiti&amp;family=Kodchasan&amp;family=Anuphan&amp;family=Thasadith&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Sarabun&amp;family=Fugaz+One&amp;family=Mitr&amp;family=Prompt&amp;family=Suez+One&amp;family=Trirong&amp;family=Athiti&amp;family=Kodchasan&amp;family=Anuphan&amp;family=Thasadith&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Alegreya&amp;family=Anek+Bangla&amp;family=Archivo+Black&amp;family=Arimo&amp;family=Armata&amp;family=Asap+Condensed&amp;family=Bree+Serif&amp;family=Cambay&amp;family=Commissioner&amp;family=Cormorant&amp;family=Cuprum&amp;family=Faustina&amp;family=Livvic&amp;family=Mulish&amp;family=PT+Serif&amp;family=Palanquin&amp;family=Pathway+Gothic+One&amp;family=Rajdhani&amp;family=Readex+Pro&amp;family=Red+Hat+Display&amp;family=Red+Hat+Text&amp;family=Roboto+Condensed&amp;family=Roboto+Slab&amp;family=Alegreya&amp;family=Anek+Bangla&amp;family=Archivo+Black&amp;family=Arimo&amp;family=Armata&amp;family=Asap+Condensed&amp;family=Bree+Serif&amp;family=Cambay&amp;family=Commissioner&amp;family=Cormorant&amp;family=Cuprum&amp;family=Faustina&amp;family=Livvic&amp;family=Mulish&amp;family=PT+Serif&amp;family=Palanquin&amp;family=Pathway+Gothic+One&amp;family=Rajdhani&amp;family=Readex+Pro&amp;family=Red+Hat+Display&amp;family=Red+Hat+Text&amp;family=Roboto+Condensed&amp;family=Roboto+Slab&amp;family=Alegreya&amp;family=Anek+Bangla&amp;family=Archivo+Black&amp;family=Arimo&amp;family=Armata&amp;family=Asap+Condensed&amp;family=Bree+Serif&amp;family=Cambay&amp;family=Commissioner&amp;family=Cormorant&amp;family=Cuprum&amp;family=Faustina&amp;family=Livvic&amp;family=Mulish&amp;family=PT+Serif&amp;family=Palanquin&amp;family=Pathway+Gothic+One&amp;family=Rajdhani&amp;family=Readex+Pro&amp;family=Red+Hat+Display&amp;family=Red+Hat+Text&amp;family=Roboto+Condensed&amp;family=Roboto+Slab&amp;family=Alegreya&amp;family=Anek+Bangla&amp;family=Archivo+Black&amp;family=Arimo&amp;family=Armata&amp;family=Asap+Condensed&amp;family=Bree+Serif&amp;family=Cambay&amp;family=Commissioner&amp;family=Cormorant&amp;family=Cuprum&amp;family=Faustina&amp;family=Livvic&amp;family=Mulish&amp;family=PT+Serif&amp;family=Palanquin&amp;family=Pathway+Gothic+One&amp;family=Rajdhani&amp;family=Readex+Pro&amp;family=Red+Hat+Display&amp;family=Red+Hat+Text&amp;family=Roboto+Condensed&amp;family=Roboto+Slab&amp;family=Alegreya&amp;family=Anek+Bangla&amp;family=Archivo+Black&amp;family=Arimo&amp;family=Armata&amp;family=Asap+Condensed&amp;family=Bree+Serif&amp;family=Cambay&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Commissioner&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Antic+Slab&amp;family=Economica&amp;family=ABeeZee&amp;family=Coustard&amp;family=Averia+Serif+Libre&amp;family=Balsamiq+Sans&amp;family=Encode+Sans&amp;family=Gelasio&amp;family=Istok+Web&amp;family=Lusitana&amp;family=NTR&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Abyssinica+SIL&amp;family=Adamina&amp;family=Afacad&amp;family=Aguafina+Script&amp;family=Akaya+Kanadaka&amp;family=Alatsi&amp;family=Alike&amp;family=Allan&amp;family=Amita&amp;family=Anaheim&amp;family=Andada+Pro&amp;family=Antic&amp;family=Arbutus&amp;family=Arsenal&amp;family=Arya&amp;family=Atkinson+Hyperlegible&amp;family=Aubrey&amp;family=Averia+Gruesa+Libre&amp;family=Bad+Script&amp;family=Bahiana&amp;family=Basic&amp;family=Be+Vietnam+Pro&amp;family=Belleza&amp;family=BenchNine&amp;family=Bentham&amp;family=Berkshire+Swash&amp;family=Beth+Ellen&amp;family=Big+Shoulders+Display&amp;family=Bigelow+Rules&amp;family=Bilbo+Swash+Caps&amp;family=BioRhyme&amp;family=Biryani&amp;family=Black+Han+Sans&amp;family=Bonbon&amp;family=Bowlby+One&amp;family=Brawler&amp;family=Bubblegum+Sans&amp;family=Bubbler+One&amp;family=Butcherman&amp;family=Cagliostro&amp;family=Cambo&amp;family=Carrois+Gothic&amp;family=Castoro&amp;family=Charmonman&amp;family=Chicle&amp;family=Chilanka&amp;family=Chonburi&amp;family=Cinzel+Decorative&amp;family=Clicker+Script&amp;family=Coda+Caption&amp;family=Combo&amp;family=Convergence&amp;family=Copse&amp;family=Corben&amp;family=Croissant+One&amp;family=Darker+Grotesque&amp;family=David+Libre&amp;family=Dekko&amp;family=Delius&amp;family=Diplomata&amp;family=Doppio+One&amp;family=Dr+Sugiyama&amp;family=Duru+Sans&amp;family=Dynalight&amp;family=Eczar&amp;family=Eagle+Lake&amp;family=El+Messiri&amp;family=Electrolize&amp;family=Emilys+Candy&amp;family=Englebert&amp;family=Euphoria+Script&amp;family=Fahkwang&amp;family=Fanwood+Text&amp;family=Federant&amp;family=Federo&amp;family=Felipa&amp;family=Festive&amp;family=Fjord+One&amp;family=Fondamento&amp;family=Fontdiner+Swanky&amp;family=Forum&amp;family=Gabriela&amp;family=Gaegu&amp;family=GFS+Didot&amp;family=GFS+Neohellenic&amp;family=Gilda+Display&amp;family=Gorditas&amp;family=Gravitas+One&amp;family=Gruppo&amp;family=Habibi&amp;family=Halant&amp;family=Hammersmith+One&amp;family=Harmattan&amp;family=Headland+One&amp;family=Henny+Penny&amp;family=Herr+Von+Muellerhoff&amp;family=Hind+Guntur&amp;family=Holtwood+One+SC&amp;family=IM+Fell+English&amp;family=IM+Fell+DW+Pica&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Ibarra+Real+Nova&amp;family=Iceberg&amp;family=Inika&amp;family=Inter&amp;family=Italiana&amp;family=Jacques+Francois&amp;family=Jaldi&amp;family=Jim+Nightshade&amp;family=Just+Another+Hand&amp;family=Kaisei+Opti&amp;family=Kameron&amp;family=Karma&amp;family=Katibeh&amp;family=Kavivanar&amp;family=Khula&amp;family=Kings&amp;family=Kiwi+Maru&amp;family=Klee+One&amp;family=Kotta+One&amp;family=Kurale&amp;family=Lalezar&amp;family=League+Gothic&amp;family=Ledger&amp;family=Lekton&amp;family=Libre+Barcode+39&amp;family=Life+Savers&amp;family=Lilita+One&amp;family=Limelight&amp;family=Linden+Hill&amp;family=Literata&amp;family=Lobster+Two&amp;family=Londrina+Solid&amp;family=Loved+by+the+King&amp;family=M+PLUS+Rounded+1c&amp;family=Magra&amp;family=Marcellus&amp;family=Markazi+Text&amp;family=Married&amp;family=Mate&amp;family=McLaren&amp;family=Merienda&amp;family=Metamorphous&amp;family=Metrophobic&amp;family=Michroma&amp;family=Milonga&amp;family=Mina&amp;family=Modak&amp;family=Molengo&amp;family=Monoton&amp;family=Monsieur+La+Doulaise&amp;family=Montaga&amp;family=MonteCarlo&amp;family=Moul&amp;family=Mouse+Memoirs&amp;family=Mr+Bedfort&amp;family=Mukta+Mahee&amp;family=My+Soul&amp;family=Nanum+Brush+Script&amp;family=Neuton&amp;family=Nixie+One&amp;family=Nobile&amp;family=Noto+Kufi+Arabic&amp;family=Noto+Nastaliq+Urdu&amp;family=Numans&amp;family=Nunito+Sans&amp;family=Odibee+Sans&amp;family=Offside&amp;family=Oleo+Script&amp;family=Oranienbaum&amp;family=Original+Surfer&amp;family=Ovo&amp;family=Oxanium&amp;family=Paprika&amp;family=Parisienne&amp;family=Passion+One&amp;family=Patua+One&amp;family=Pavanam&amp;family=Peralta&amp;family=Petit+Formal+Script&amp;family=Philosopher&amp;family=Pinyon+Script&amp;family=Pirata+One&amp;family=Plaster&amp;family=Playball&amp;family=Podkova&amp;family=Pompiere&amp;family=Port+Lligat+Sans&amp;family=Pragati+Narrow&amp;family=Preahvihear&amp;family=Press+Start+2P&amp;family=Quando&amp;family=Quantico&amp;family=Quattrocento&amp;family=Quintessential&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Aleo&amp;family=Amiko&amp;family=Antic+Didone&amp;family=Arizonia&amp;family=Baloo&amp;family=Bowlby+One+SC&amp;family=Cabin+Sketch&amp;family=Calistoga&amp;family=Candal&amp;family=Cantarell&amp;family=Carme&amp;family=Changa+One&amp;family=Cherry+Swash&amp;family=Concert+One&amp;family=Crete+Round&amp;family=Cutive&amp;family=Dawning+of+a+New+Day&amp;family=Delius+Swash+Caps&amp;family=Denk+One&amp;family=Dorsa&amp;family=Elsie&amp;family=Engagement&amp;family=Flamenco&amp;family=Freckle+Face&amp;family=Fredericka+the+Great&amp;family=Galada&amp;family=Geostar&amp;family=Geo&amp;family=Gurajada&amp;family=Hanalei&amp;family=Homenaje&amp;family=Iceland&amp;family=Julee&amp;family=K2D&amp;family=Kadwa&amp;family=Kelly+Slab&amp;family=Kite+One&amp;family=Krub&amp;family=League+Script&amp;family=Lily+Script+One&amp;family=Londrina+Sketch&amp;family=Love+Ya+Like+A+Sister&amp;family=Maitree&amp;family=Mallanna&amp;family=Mandali&amp;family=Marvel&amp;family=Megrim&amp;family=Merienda+One&amp;family=Miriam+Libre&amp;family=Molle&amp;family=Montserrat+Alternates&amp;family=Mountains+of+Christmas&amp;family=Nanum+Pen+Script&amp;family=Niconne&amp;family=Niramit&amp;family=Norican&amp;family=Nova+Flat&amp;family=Oleo+Script+Swash+Caps&amp;family=Orienta&amp;family=Oregano&amp;family=Palanquin+Dark&amp;family=Patrick+Hand+SC&amp;family=Paytone+One&amp;family=Petrona&amp;family=Playfair+Display+SC&amp;family=Prata&amp;family=Rambla&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Alike+Angular&amp;family=Allerta&amp;family=Allerta+Stencil&amp;family=Annie+Use+Your+Telescope&amp;family=Anonymous+Pro&amp;family=Archivo&amp;family=Arapey&amp;family=Arima+Madurai&amp;family=Artifika&amp;family=Audiowide&amp;family=Balthazar&amp;family=Baumans&amp;family=Belgrano&amp;family=Bellefair&amp;family=Benne&amp;family=Buenard&amp;family=Cabin+Condensed&amp;family=Cairo+Play&amp;family=Cantata+One&amp;family=Capriola&amp;family=Carrois+Gothic+SC&amp;family=Crimson+Pro&amp;family=Cutive+Mono&amp;family=Delius+Unicase&amp;family=Eater&amp;family=Emblema+One&amp;family=Epilogue&amp;family=Esteban&amp;family=Expletus+Sans&amp;family=Farsan&amp;family=Fenix&amp;family=Finger+Paint&amp;family=Fresca&amp;family=Galindo&amp;family=Gentium+Book+Basic&amp;family=Glegoo&amp;family=Goblin+One&amp;family=Goudy+Bookletter+1911&amp;family=Graduate&amp;family=Grand+Hotel&amp;family=Hachi+Maru+Pop&amp;family=Hind+Madurai&amp;family=IBM+Plex+Mono&amp;family=IM+Fell+Double+Pica&amp;family=IM+Fell+English+SC&amp;family=IM+Fell+French+Canon&amp;family=IM+Fell+Great+Primer&amp;family=Imbue&amp;family=Inder&amp;family=Italianno&amp;family=Jolly+Lodger&amp;family=Joti+One&amp;family=Judson&amp;family=Junge&amp;family=Just+Me+Again+Down+Here&amp;family=Kaushan+Script&amp;family=Kavoon&amp;family=Knewave&amp;family=Kranky&amp;family=Kristi&amp;family=Kumar+One&amp;family=La+Belle+Aurore&amp;family=Lancelot&amp;family=Lateef&amp;family=League+Spartan&amp;family=Libre+Caslon+Display&amp;family=Libre+Caslon+Text&amp;family=Licorice&amp;family=Liu+Jian+Mao+Cao&amp;family=Lustria&amp;family=Macondo&amp;family=Marcellus+SC&amp;family=Marck+Script&amp;family=Marmelad&amp;family=Maven+Pro&amp;family=MedievalSharp&amp;family=Metal&amp;family=Miltonian&amp;family=Mochiy+Pop+One&amp;family=Monda&amp;family=Monofett&amp;family=Moulpali&amp;family=Mr+De+Haviland&amp;family=Mrs+Saint+Delafield&amp;family=Mukta+Malar&amp;family=Mukta+Vaani&amp;family=Nabla&amp;family=Nanum+Gothic+Coding&amp;family=News+Cycle&amp;family=Noto+Sans+JP&amp;family=Nova+Mono&amp;family=Oi&amp;family=Old+Standard+TT&amp;family=Open+Sans+Condensed&amp;family=Overlock&amp;family=Oxygen+Mono&amp;family=PT+Mono&amp;family=Passero+One&amp;family=Peddana&amp;family=Poller+One&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Port+Lligat+Slab&amp;family=Potta+One&amp;family=Prosto+One&amp;family=Puritan&amp;family=Qahiri&amp;family=Quattrocento+Sans&amp;family=Qwigley&amp;family=Racing+Sans+One&amp;family=Radley&amp;family=Rakkas&amp;family=Raleway+Dots&amp;family=Ramabhadra&amp;family=Ramaraja&amp;family=Rationale&amp;family=Redressed&amp;family=Reem+Kufi&amp;family=Rhodium+Libre&amp;family=Ribeye&amp;family=Righteous&amp;family=Rochester&amp;family=Rosario&amp;family=Rozha+One&amp;family=Rubik+Beastly&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Aboreto&amp;family=Aclonica&amp;family=Alegreya+SC&amp;family=Almendra&amp;family=Anybody&amp;family=Are+You+Serious&amp;family=Asul&amp;family=Bakbak+One&amp;family=Barriecito&amp;family=Battambang&amp;family=Bevan&amp;family=Big+Shoulders+Inline+Text&amp;family=Big+Shoulders+Text&amp;family=Bilbo&amp;family=BioRhyme+Expanded&amp;family=Black+Ops+One&amp;family=Blinker&amp;family=Bodoni+Moda&amp;family=Brygada+1918&amp;family=Butterfly+Kids&amp;family=Caramel&amp;family=Castoro+Titling&amp;family=Charm&amp;family=Chathura&amp;family=Chivo+Mono&amp;family=Coiny&amp;family=Comfortaa&amp;family=Contrail+One&amp;family=Creepster&amp;family=DM+Mono&amp;family=Dhurjati&amp;family=Fruktur&amp;family=Galdeano&amp;family=Gemunu+Libre&amp;family=Genos&amp;family=Gideon+Roman&amp;family=Gloock&amp;family=Griffy&amp;family=Hanken+Grotesk&amp;family=Hepta+Slab&amp;family=Hina+Mincho&amp;family=Hind+Vadodara&amp;family=Hubballi&amp;family=Ingrid+Darling&amp;family=Inter+Tight&amp;family=Jacques+Francois+Shadow&amp;family=Jersey+10&amp;family=Kalam&amp;family=Kalnia&amp;family=Kdam+Thmor+Pro&amp;family=KoHo&amp;family=Kolker+Brush&amp;family=Laila&amp;family=Lakki+Reddy&amp;family=Langar&amp;family=Lemonada&amp;family=Libre+Barcode+128&amp;family=Love+Light&amp;family=Major+Mono+Display&amp;family=Mansalva&amp;family=Manuale&amp;family=Marko+One&amp;family=Meera+Inimai&amp;family=Miss+Fajardose&amp;family=Modern+Antiqua&amp;family=Mogra&amp;family=Montagu+Slab&amp;family=Montserrat+Subrayada&amp;family=Mr+Dafoe&amp;family=Mystery+Quest&amp;family=Nanum+Myeongjo&amp;family=New+Rocker&amp;family=Noto+Sans+Display&amp;family=Nova+Oval&amp;family=Oldenburg&amp;family=Overlock+SC&amp;family=Passions+Conflict&amp;family=Pattaya&amp;family=Poor+Story&amp;family=Ravi+Prakash&amp;family=Rufina&amp;family=Ruge+Boogie&amp;family=Ruluko&amp;family=Ruslan+Display&amp;family=Rye&amp;family=Saira+Extra+Condensed&amp;family=Sail&amp;family=Salsa&amp;family=Sancreek&amp;family=Sarpanch&amp;family=Scada&amp;family=Scheherazade+New&amp;family=Seaweed+Script&amp;family=Sevillana&amp;family=Share+Tech&amp;family=Short+Stack&amp;family=Shrikhand&amp;family=Siemreap&amp;family=Sigmar&amp;family=Signika+Negative&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Simonetta&amp;family=Single+Day&amp;family=Six+Caps&amp;family=Slackey&amp;family=Smokum&amp;family=Smythe&amp;family=Sofia&amp;family=Solway&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Abhaya+Libre&amp;family=Advent+Pro&amp;family=Akatab&amp;family=Aladin&amp;family=Alef&amp;family=Alex+Brush&amp;family=Alfa+Slab+One&amp;family=Alice&amp;family=Alkalami&amp;family=Almendra+Display&amp;family=Angkor&amp;family=Arbutus+Slab&amp;family=Arima&amp;family=Atma&amp;family=Averia+Libre&amp;family=Babylonica&amp;family=Bahianita&amp;family=Barlow+Semi+Condensed&amp;family=Barrio&amp;family=Big+Shoulders+Stencil+Display&amp;family=Bigshot+One&amp;family=Birthstone&amp;family=Black+And+White+Picture&amp;family=Bonheur+Royale&amp;family=Bryant+Condensed&amp;family=Caladea&amp;family=Caprasimo&amp;family=Carattere&amp;family=Caudex&amp;family=Ceviche+One&amp;family=Chango&amp;family=Chela+One&amp;family=Chenla&amp;family=Cherry+Cream+Soda&amp;family=Chokokutai&amp;family=Condiment&amp;family=Damion&amp;family=Dela+Gothic+One&amp;family=Dokdo&amp;family=Donegal+One&amp;family=East+Sea+Dokdo&amp;family=Elsie+Swash+Caps&amp;family=Encode+Sans+Condensed&amp;family=Ephesis&amp;family=Erica+One&amp;family=Ewert&amp;family=Fascinate&amp;family=Faster+One&amp;family=Fauna+One&amp;family=Flavors&amp;family=Freehand&amp;family=Frijole&amp;family=Gafata&amp;family=Gamja+Flower&amp;family=Gayathri&amp;family=Georama&amp;family=Girassol&amp;family=Gluten&amp;family=Gothic+A1&amp;family=Grechen+Fuemen&amp;family=Gugi&amp;family=Hanalei+Fill&amp;family=IBM+Plex+Serif&amp;family=Irish+Grover&amp;family=Island+Moments&amp;family=Jockey+One&amp;family=Keania+One&amp;family=Kirang+Haerang&amp;family=Koulen&amp;family=Krona+One&amp;family=Kumar+One+Outline&amp;family=Labrada&amp;family=Lemon&amp;family=Libre+Barcode+128+Text&amp;family=Londrina+Outline&amp;family=Londrina+Shadow&amp;family=Luckiest+Guy&amp;family=Luxurious+Roman&amp;family=Luxurious+Script&amp;family=M+PLUS+Code+Latin&amp;family=Madimi+One&amp;family=Maiden+Orange&amp;family=Mako&amp;family=Mali&amp;family=Mea+Culpa&amp;display=swap" rel="stylesheet"/></head>
 <body>
+<div style="margin-top: 10px;">
+<label for="colorSelector">🎨 Pilih Warna Teks:</label>
+<select id="colorSelector" onchange="ubahWarna(this.value)">
+<option value="black">Hitam</option>
+<option value="red">Merah</option>
+<option value="blue">Biru</option>
+<option value="green">Hijau</option>
+<option value="purple">Ungu</option>
+<option value="orange">Oranye</option>
+<option value="custom">🔧 Custom Warna</option>
+</select>
+<input id="customColor" onchange="ubahWarna(this.value)" style="display:none;" type="color"/>
+</div>
 
+<div style="text-align:right; margin-top:10px;">
+<label for="fontSelector">🅵 Pilih Gaya Font:</label>
+<select id="fontSelector" onchange="gantiFont(this.value)"><option value="'Poppins', sans-serif">Poppins</option><option value="'Roboto', sans-serif">Roboto</option><option value="'Open Sans', sans-serif">Open Sans</option><option value="'Lato', sans-serif">Lato</option><option value="'Montserrat', sans-serif">Montserrat</option><option value="'Raleway', sans-serif">Raleway</option><option value="'Oswald', sans-serif">Oswald</option><option value="'Merriweather', sans-serif">Merriweather</option><option value="'Noto Sans', sans-serif">Noto Sans</option><option value="'Ubuntu', sans-serif">Ubuntu</option><option value="'Playfair Display', sans-serif">Playfair Display</option><option value="'Rubik', sans-serif">Rubik</option><option value="'Source Sans Pro', sans-serif">Source Sans Pro</option><option value="'Nunito', sans-serif">Nunito</option><option value="'PT Sans', sans-serif">PT Sans</option><option value="'Quicksand', sans-serif">Quicksand</option><option value="'Work Sans', sans-serif">Work Sans</option><option value="'Mukta', sans-serif">Mukta</option><option value="'Libre Franklin', sans-serif">Libre Franklin</option><option value="'Fira Sans', sans-serif">Fira Sans</option><option value="'Inconsolata', sans-serif">Inconsolata</option><option value="'Cabin', sans-serif">Cabin</option><option value="'Oxygen', sans-serif">Oxygen</option><option value="'Bebas Neue', sans-serif">Bebas Neue</option><option value="'Exo', sans-serif">Exo</option><option value="'Cairo', sans-serif">Cairo</option><option value="'Titillium Web', sans-serif">Titillium Web</option><option value="'Dosis', sans-serif">Dosis</option><option value="'Manrope', sans-serif">Manrope</option><option value="'Barlow', sans-serif">Barlow</option><option value="'Hind', sans-serif">Hind</option><option value="'Heebo', sans-serif">Heebo</option><option value="'Josefin Sans', sans-serif">Josefin Sans</option><option value="'Asap', sans-serif">Asap</option><option value="'Zilla Slab', sans-serif">Zilla Slab</option><option value="'Arvo', sans-serif">Arvo</option><option value="'Prompt', sans-serif">Prompt</option><option value="'Signika', sans-serif">Signika</option><option value="'Tajawal', sans-serif">Tajawal</option><option value="'Lobster', sans-serif">Lobster</option><option value="'Overpass', sans-serif">Overpass</option><option value="'Karla', sans-serif">Karla</option><option value="'Questrial', sans-serif">Questrial</option><option value="'Varela Round', sans-serif">Varela Round</option><option value="'Anton', sans-serif">Anton</option><option value="'Fjalla One', sans-serif">Fjalla One</option><option value="'IBM Plex Sans', sans-serif">IBM Plex Sans</option><option value="'Spectral', sans-serif">Spectral</option><option value="'Crimson Text', sans-serif">Crimson Text</option><option value="'DM Sans', sans-serif">DM Sans</option><option value="'Lexend', sans-serif">Lexend</option><option value="'Chivo', sans-serif">Chivo</option><option value="'Abel', sans-serif">Abel</option><option value="'Ropa Sans', sans-serif">Ropa Sans</option><option value="'Amaranth', sans-serif">Amaranth</option><option value="'Teko', sans-serif">Teko</option><option value="'Catamaran', sans-serif">Catamaran</option><option value="'Jost', sans-serif">Jost</option><option value="'Didact Gothic', sans-serif">Didact Gothic</option><option value="'Poiret One', sans-serif">Poiret One</option><option value="'Saira', sans-serif">Saira</option><option value="'Bitter', sans-serif">Bitter</option><option value="'Acme', sans-serif">Acme</option><option value="'Mada', sans-serif">Mada</option><option value="'Cormorant Garamond', sans-serif">Cormorant Garamond</option><option value="'Space Grotesk', sans-serif">Space Grotesk</option><option value="'Unna', sans-serif">Unna</option><option value="'Gudea', sans-serif">Gudea</option><option value="'Kanit', sans-serif">Kanit</option><option value="'Assistant', sans-serif">Assistant</option><option value="'Martel', sans-serif">Martel</option><option value="'Vollkorn', sans-serif">Vollkorn</option><option value="'Exo 2', sans-serif">Exo 2</option><option value="'Pathway Extreme', sans-serif">Pathway Extreme</option><option value="'Kumbh Sans', sans-serif">Kumbh Sans</option><option value="'Sora', sans-serif">Sora</option><option value="'Jura', sans-serif">Jura</option><option value="'Urbanist', sans-serif">Urbanist</option><option value="'Caveat', sans-serif">Caveat</option><option value="'Changa', sans-serif">Changa</option><option value="'Nanum Gothic', sans-serif">Nanum Gothic</option><option value="'Bai Jamjuree', sans-serif">Bai Jamjuree</option><option value="'Public Sans', sans-serif">Public Sans</option><option value="'Pontano Sans', sans-serif">Pontano Sans</option><option value="'Spartan', sans-serif">Spartan</option><option value="'Noto Serif', sans-serif">Noto Serif</option><option value="'Merriweather Sans', sans-serif">Merriweather Sans</option><option value="'Alegreya Sans', sans-serif">Alegreya Sans</option><option value="'Lora', sans-serif">Lora</option><option value="'Slabo 27px', sans-serif">Slabo 27px</option><option value="'Domine', sans-serif">Domine</option><option value="'Kreon', sans-serif">Kreon</option><option value="'Tinos', sans-serif">Tinos</option><option value="'M PLUS 1p', sans-serif">M PLUS 1p</option><option value="'Spectral SC', sans-serif">Spectral SC</option><option value="'Rasa', sans-serif">Rasa</option><option value="'Azeret Mono', sans-serif">Azeret Mono</option><option value="'Cousine', sans-serif">Cousine</option><option value="'Fira Code', sans-serif">Fira Code</option><option value="'JetBrains Mono', sans-serif">JetBrains Mono</option><option value="'Share Tech Mono', sans-serif">Share Tech Mono</option><option value="'Courier Prime', sans-serif">Courier Prime</option><option value="'Libre Baskerville', sans-serif">Libre Baskerville</option><option value="'EB Garamond', sans-serif">EB Garamond</option><option value="'Tangerine', sans-serif">Tangerine</option><option value="'Satisfy', sans-serif">Satisfy</option><option value="'Great Vibes', sans-serif">Great Vibes</option><option value="'Dancing Script', sans-serif">Dancing Script</option><option value="'Pacifico', sans-serif">Pacifico</option><option value="'Yellowtail', sans-serif">Yellowtail</option><option value="'Gloria Hallelujah', sans-serif">Gloria Hallelujah</option><option value="'Indie Flower', sans-serif">Indie Flower</option><option value="'Shadows Into Light', sans-serif">Shadows Into Light</option><option value="'Handlee', sans-serif">Handlee</option><option value="'Coming Soon', sans-serif">Coming Soon</option><option value="'Rock Salt', sans-serif">Rock Salt</option><option value="'Caveat Brush', sans-serif">Caveat Brush</option><option value="'Patrick Hand', sans-serif">Patrick Hand</option><option value="'Architects Daughter', sans-serif">Architects Daughter</option><option value="'Reenie Beanie', sans-serif">Reenie Beanie</option><option value="'Permanent Marker', sans-serif">Permanent Marker</option><option value="'Chewy', sans-serif">Chewy</option><option value="'Abril Fatface', sans-serif">Abril Fatface</option><option value="'Cinzel', sans-serif">Cinzel</option><option value="'Play', sans-serif">Play</option><option value="'Covered By Your Grace', sans-serif">Covered By Your Grace</option><option value="'Nothing You Could Do', sans-serif">Nothing You Could Do</option><option value="'Homemade Apple', sans-serif">Homemade Apple</option><option value="'Neucha', sans-serif">Neucha</option><option value="'Courgette', sans-serif">Courgette</option><option value="'Baloo 2', sans-serif">Baloo 2</option><option value="'Baloo Tamma 2', sans-serif">Baloo Tamma 2</option><option value="'Itim', sans-serif">Itim</option><option value="'Kosugi Maru', sans-serif">Kosugi Maru</option><option value="'Padauk', sans-serif">Padauk</option><option value="'Gochi Hand', sans-serif">Gochi Hand</option><option value="'Nerko One', sans-serif">Nerko One</option><option value="'Viga', sans-serif">Viga</option><option value="'Skranji', sans-serif">Skranji</option><option value="'Aref Ruqaa', sans-serif">Aref Ruqaa</option><option value="'Almarai', sans-serif">Almarai</option><option value="'Timmana', sans-serif">Timmana</option><option value="'Andika', sans-serif">Andika</option><option value="'Ranchers', sans-serif">Ranchers</option><option value="'Carter One', sans-serif">Carter One</option><option value="'Secular One', sans-serif">Secular One</option><option value="'Francois One', sans-serif">Francois One</option><option value="'Yatra One', sans-serif">Yatra One</option><option value="'Ma Shan Zheng', sans-serif">Ma Shan Zheng</option><option value="'Bungee', sans-serif">Bungee</option><option value="'Coda', sans-serif">Coda</option><option value="'Orbitron', sans-serif">Orbitron</option><option value="'Sarabun', sans-serif">Sarabun</option><option value="'Fugaz One', sans-serif">Fugaz One</option><option value="'Mitr', sans-serif">Mitr</option><option value="'Prompt', sans-serif">Prompt</option><option value="'Suez One', sans-serif">Suez One</option><option value="'Trirong', sans-serif">Trirong</option><option value="'Athiti', sans-serif">Athiti</option><option value="'Kodchasan', sans-serif">Kodchasan</option><option value="'Anuphan', sans-serif">Anuphan</option><option value="'Thasadith', sans-serif">Thasadith</option><option value="'Alegreya', sans-serif">Alegreya</option><option value="'Anek Bangla', sans-serif">Anek Bangla</option><option value="'Archivo Black', sans-serif">Archivo Black</option><option value="'Arimo', sans-serif">Arimo</option><option value="'Armata', sans-serif">Armata</option><option value="'Asap Condensed', sans-serif">Asap Condensed</option><option value="'Bree Serif', sans-serif">Bree Serif</option><option value="'Cambay', sans-serif">Cambay</option><option value="'Commissioner', sans-serif">Commissioner</option><option value="'Cormorant', sans-serif">Cormorant</option><option value="'Cuprum', sans-serif">Cuprum</option><option value="'Faustina', sans-serif">Faustina</option><option value="'Livvic', sans-serif">Livvic</option><option value="'Mulish', sans-serif">Mulish</option><option value="'PT Serif', sans-serif">PT Serif</option><option value="'Palanquin', sans-serif">Palanquin</option><option value="'Pathway Gothic One', sans-serif">Pathway Gothic One</option><option value="'Rajdhani', sans-serif">Rajdhani</option><option value="'Readex Pro', sans-serif">Readex Pro</option><option value="'Red Hat Display', sans-serif">Red Hat Display</option><option value="'Red Hat Text', sans-serif">Red Hat Text</option><option value="'Roboto Condensed', sans-serif">Roboto Condensed</option><option value="'Roboto Slab', sans-serif">Roboto Slab</option><option value="'Alegreya', sans-serif">Alegreya</option><option value="'Anek Bangla', sans-serif">Anek Bangla</option><option value="'Archivo Black', sans-serif">Archivo Black</option><option value="'Arimo', sans-serif">Arimo</option><option value="'Armata', sans-serif">Armata</option><option value="'Asap Condensed', sans-serif">Asap Condensed</option><option value="'Bree Serif', sans-serif">Bree Serif</option><option value="'Cambay', sans-serif">Cambay</option><option value="'Commissioner', sans-serif">Commissioner</option><option value="'Cormorant', sans-serif">Cormorant</option><option value="'Cuprum', sans-serif">Cuprum</option><option value="'Faustina', sans-serif">Faustina</option><option value="'Livvic', sans-serif">Livvic</option><option value="'Mulish', sans-serif">Mulish</option><option value="'PT Serif', sans-serif">PT Serif</option><option value="'Palanquin', sans-serif">Palanquin</option><option value="'Pathway Gothic One', sans-serif">Pathway Gothic One</option><option value="'Rajdhani', sans-serif">Rajdhani</option><option value="'Readex Pro', sans-serif">Readex Pro</option><option value="'Red Hat Display', sans-serif">Red Hat Display</option><option value="'Red Hat Text', sans-serif">Red Hat Text</option><option value="'Roboto Condensed', sans-serif">Roboto Condensed</option><option value="'Roboto Slab', sans-serif">Roboto Slab</option><option value="'Alegreya', sans-serif">Alegreya</option><option value="'Anek Bangla', sans-serif">Anek Bangla</option><option value="'Archivo Black', sans-serif">Archivo Black</option><option value="'Arimo', sans-serif">Arimo</option><option value="'Armata', sans-serif">Armata</option><option value="'Asap Condensed', sans-serif">Asap Condensed</option><option value="'Bree Serif', sans-serif">Bree Serif</option><option value="'Cambay', sans-serif">Cambay</option><option value="'Commissioner', sans-serif">Commissioner</option><option value="'Cormorant', sans-serif">Cormorant</option><option value="'Cuprum', sans-serif">Cuprum</option><option value="'Faustina', sans-serif">Faustina</option><option value="'Livvic', sans-serif">Livvic</option><option value="'Mulish', sans-serif">Mulish</option><option value="'PT Serif', sans-serif">PT Serif</option><option value="'Palanquin', sans-serif">Palanquin</option><option value="'Pathway Gothic One', sans-serif">Pathway Gothic One</option><option value="'Rajdhani', sans-serif">Rajdhani</option><option value="'Readex Pro', sans-serif">Readex Pro</option><option value="'Red Hat Display', sans-serif">Red Hat Display</option><option value="'Red Hat Text', sans-serif">Red Hat Text</option><option value="'Roboto Condensed', sans-serif">Roboto Condensed</option><option value="'Roboto Slab', sans-serif">Roboto Slab</option><option value="'Alegreya', sans-serif">Alegreya</option><option value="'Anek Bangla', sans-serif">Anek Bangla</option><option value="'Archivo Black', sans-serif">Archivo Black</option><option value="'Arimo', sans-serif">Arimo</option><option value="'Armata', sans-serif">Armata</option><option value="'Asap Condensed', sans-serif">Asap Condensed</option><option value="'Bree Serif', sans-serif">Bree Serif</option><option value="'Cambay', sans-serif">Cambay</option><option value="'Commissioner', sans-serif">Commissioner</option><option value="'Cormorant', sans-serif">Cormorant</option><option value="'Cuprum', sans-serif">Cuprum</option><option value="'Faustina', sans-serif">Faustina</option><option value="'Livvic', sans-serif">Livvic</option><option value="'Mulish', sans-serif">Mulish</option><option value="'PT Serif', sans-serif">PT Serif</option><option value="'Palanquin', sans-serif">Palanquin</option><option value="'Pathway Gothic One', sans-serif">Pathway Gothic One</option><option value="'Rajdhani', sans-serif">Rajdhani</option><option value="'Readex Pro', sans-serif">Readex Pro</option><option value="'Red Hat Display', sans-serif">Red Hat Display</option><option value="'Red Hat Text', sans-serif">Red Hat Text</option><option value="'Roboto Condensed', sans-serif">Roboto Condensed</option><option value="'Roboto Slab', sans-serif">Roboto Slab</option><option value="'Alegreya', sans-serif">Alegreya</option><option value="'Anek Bangla', sans-serif">Anek Bangla</option><option value="'Archivo Black', sans-serif">Archivo Black</option><option value="'Arimo', sans-serif">Arimo</option><option value="'Armata', sans-serif">Armata</option><option value="'Asap Condensed', sans-serif">Asap Condensed</option><option value="'Bree Serif', sans-serif">Bree Serif</option><option value="'Cambay', sans-serif">Cambay</option><option value="'Commissioner', sans-serif">Commissioner</option><option value="'Antic Slab', sans-serif">Antic Slab</option><option value="'Economica', sans-serif">Economica</option><option value="'ABeeZee', sans-serif">ABeeZee</option><option value="'Coustard', sans-serif">Coustard</option><option value="'Averia Serif Libre', sans-serif">Averia Serif Libre</option><option value="'Balsamiq Sans', sans-serif">Balsamiq Sans</option><option value="'Encode Sans', sans-serif">Encode Sans</option><option value="'Gelasio', sans-serif">Gelasio</option><option value="'Istok Web', sans-serif">Istok Web</option><option value="'Lusitana', sans-serif">Lusitana</option><option value="'NTR', sans-serif">NTR</option><option value="'Abyssinica SIL', sans-serif">Abyssinica SIL</option><option value="'Adamina', sans-serif">Adamina</option><option value="'Afacad', sans-serif">Afacad</option><option value="'Aguafina Script', sans-serif">Aguafina Script</option><option value="'Akaya Kanadaka', sans-serif">Akaya Kanadaka</option><option value="'Alatsi', sans-serif">Alatsi</option><option value="'Alike', sans-serif">Alike</option><option value="'Allan', sans-serif">Allan</option><option value="'Amita', sans-serif">Amita</option><option value="'Anaheim', sans-serif">Anaheim</option><option value="'Andada Pro', sans-serif">Andada Pro</option><option value="'Antic', sans-serif">Antic</option><option value="'Arbutus', sans-serif">Arbutus</option><option value="'Arsenal', sans-serif">Arsenal</option><option value="'Arya', sans-serif">Arya</option><option value="'Atkinson Hyperlegible', sans-serif">Atkinson Hyperlegible</option><option value="'Aubrey', sans-serif">Aubrey</option><option value="'Averia Gruesa Libre', sans-serif">Averia Gruesa Libre</option><option value="'Bad Script', sans-serif">Bad Script</option><option value="'Bahiana', sans-serif">Bahiana</option><option value="'Basic', sans-serif">Basic</option><option value="'Be Vietnam Pro', sans-serif">Be Vietnam Pro</option><option value="'Belleza', sans-serif">Belleza</option><option value="'BenchNine', sans-serif">BenchNine</option><option value="'Bentham', sans-serif">Bentham</option><option value="'Berkshire Swash', sans-serif">Berkshire Swash</option><option value="'Beth Ellen', sans-serif">Beth Ellen</option><option value="'Big Shoulders Display', sans-serif">Big Shoulders Display</option><option value="'Bigelow Rules', sans-serif">Bigelow Rules</option><option value="'Bilbo Swash Caps', sans-serif">Bilbo Swash Caps</option><option value="'BioRhyme', sans-serif">BioRhyme</option><option value="'Biryani', sans-serif">Biryani</option><option value="'Black Han Sans', sans-serif">Black Han Sans</option><option value="'Bonbon', sans-serif">Bonbon</option><option value="'Bowlby One', sans-serif">Bowlby One</option><option value="'Brawler', sans-serif">Brawler</option><option value="'Bubblegum Sans', sans-serif">Bubblegum Sans</option><option value="'Bubbler One', sans-serif">Bubbler One</option><option value="'Butcherman', sans-serif">Butcherman</option><option value="'Cagliostro', sans-serif">Cagliostro</option><option value="'Cambo', sans-serif">Cambo</option><option value="'Carrois Gothic', sans-serif">Carrois Gothic</option><option value="'Castoro', sans-serif">Castoro</option><option value="'Charmonman', sans-serif">Charmonman</option><option value="'Chicle', sans-serif">Chicle</option><option value="'Chilanka', sans-serif">Chilanka</option><option value="'Chonburi', sans-serif">Chonburi</option><option value="'Cinzel Decorative', sans-serif">Cinzel Decorative</option><option value="'Clicker Script', sans-serif">Clicker Script</option><option value="'Coda Caption', sans-serif">Coda Caption</option><option value="'Combo', sans-serif">Combo</option><option value="'Convergence', sans-serif">Convergence</option><option value="'Copse', sans-serif">Copse</option><option value="'Corben', sans-serif">Corben</option><option value="'Croissant One', sans-serif">Croissant One</option><option value="'Darker Grotesque', sans-serif">Darker Grotesque</option><option value="'David Libre', sans-serif">David Libre</option><option value="'Dekko', sans-serif">Dekko</option><option value="'Delius', sans-serif">Delius</option><option value="'Diplomata', sans-serif">Diplomata</option><option value="'Doppio One', sans-serif">Doppio One</option><option value="'Dr Sugiyama', sans-serif">Dr Sugiyama</option><option value="'Duru Sans', sans-serif">Duru Sans</option><option value="'Dynalight', sans-serif">Dynalight</option><option value="'Eczar', sans-serif">Eczar</option><option value="'Eagle Lake', sans-serif">Eagle Lake</option><option value="'El Messiri', sans-serif">El Messiri</option><option value="'Electrolize', sans-serif">Electrolize</option><option value="'Emilys Candy', sans-serif">Emilys Candy</option><option value="'Englebert', sans-serif">Englebert</option><option value="'Euphoria Script', sans-serif">Euphoria Script</option><option value="'Fahkwang', sans-serif">Fahkwang</option><option value="'Fanwood Text', sans-serif">Fanwood Text</option><option value="'Federant', sans-serif">Federant</option><option value="'Federo', sans-serif">Federo</option><option value="'Felipa', sans-serif">Felipa</option><option value="'Festive', sans-serif">Festive</option><option value="'Fjord One', sans-serif">Fjord One</option><option value="'Fondamento', sans-serif">Fondamento</option><option value="'Fontdiner Swanky', sans-serif">Fontdiner Swanky</option><option value="'Forum', sans-serif">Forum</option><option value="'Gabriela', sans-serif">Gabriela</option><option value="'Gaegu', sans-serif">Gaegu</option><option value="'GFS Didot', sans-serif">GFS Didot</option><option value="'GFS Neohellenic', sans-serif">GFS Neohellenic</option><option value="'Gilda Display', sans-serif">Gilda Display</option><option value="'Gorditas', sans-serif">Gorditas</option><option value="'Gravitas One', sans-serif">Gravitas One</option><option value="'Gruppo', sans-serif">Gruppo</option><option value="'Habibi', sans-serif">Habibi</option><option value="'Halant', sans-serif">Halant</option><option value="'Hammersmith One', sans-serif">Hammersmith One</option><option value="'Harmattan', sans-serif">Harmattan</option><option value="'Headland One', sans-serif">Headland One</option><option value="'Henny Penny', sans-serif">Henny Penny</option><option value="'Herr Von Muellerhoff', sans-serif">Herr Von Muellerhoff</option><option value="'Hind Guntur', sans-serif">Hind Guntur</option><option value="'Holtwood One SC', sans-serif">Holtwood One SC</option><option value="'IM Fell English', sans-serif">IM Fell English</option><option value="'IM Fell DW Pica', sans-serif">IM Fell DW Pica</option><option value="'Ibarra Real Nova', sans-serif">Ibarra Real Nova</option><option value="'Iceberg', sans-serif">Iceberg</option><option value="'Inika', sans-serif">Inika</option><option value="'Inter', sans-serif">Inter</option><option value="'Italiana', sans-serif">Italiana</option><option value="'Jacques Francois', sans-serif">Jacques Francois</option><option value="'Jaldi', sans-serif">Jaldi</option><option value="'Jim Nightshade', sans-serif">Jim Nightshade</option><option value="'Just Another Hand', sans-serif">Just Another Hand</option><option value="'Kaisei Opti', sans-serif">Kaisei Opti</option><option value="'Kameron', sans-serif">Kameron</option><option value="'Karma', sans-serif">Karma</option><option value="'Katibeh', sans-serif">Katibeh</option><option value="'Kavivanar', sans-serif">Kavivanar</option><option value="'Khula', sans-serif">Khula</option><option value="'Kings', sans-serif">Kings</option><option value="'Kiwi Maru', sans-serif">Kiwi Maru</option><option value="'Klee One', sans-serif">Klee One</option><option value="'Kotta One', sans-serif">Kotta One</option><option value="'Kurale', sans-serif">Kurale</option><option value="'Lalezar', sans-serif">Lalezar</option><option value="'League Gothic', sans-serif">League Gothic</option><option value="'Ledger', sans-serif">Ledger</option><option value="'Lekton', sans-serif">Lekton</option><option value="'Libre Barcode 39', sans-serif">Libre Barcode 39</option><option value="'Life Savers', sans-serif">Life Savers</option><option value="'Lilita One', sans-serif">Lilita One</option><option value="'Limelight', sans-serif">Limelight</option><option value="'Linden Hill', sans-serif">Linden Hill</option><option value="'Literata', sans-serif">Literata</option><option value="'Lobster Two', sans-serif">Lobster Two</option><option value="'Londrina Solid', sans-serif">Londrina Solid</option><option value="'Loved by the King', sans-serif">Loved by the King</option><option value="'M PLUS Rounded 1c', sans-serif">M PLUS Rounded 1c</option><option value="'Magra', sans-serif">Magra</option><option value="'Marcellus', sans-serif">Marcellus</option><option value="'Markazi Text', sans-serif">Markazi Text</option><option value="'Married', sans-serif">Married</option><option value="'Mate', sans-serif">Mate</option><option value="'McLaren', sans-serif">McLaren</option><option value="'Merienda', sans-serif">Merienda</option><option value="'Metamorphous', sans-serif">Metamorphous</option><option value="'Metrophobic', sans-serif">Metrophobic</option><option value="'Michroma', sans-serif">Michroma</option><option value="'Milonga', sans-serif">Milonga</option><option value="'Mina', sans-serif">Mina</option><option value="'Modak', sans-serif">Modak</option><option value="'Molengo', sans-serif">Molengo</option><option value="'Monoton', sans-serif">Monoton</option><option value="'Monsieur La Doulaise', sans-serif">Monsieur La Doulaise</option><option value="'Montaga', sans-serif">Montaga</option><option value="'MonteCarlo', sans-serif">MonteCarlo</option><option value="'Moul', sans-serif">Moul</option><option value="'Mouse Memoirs', sans-serif">Mouse Memoirs</option><option value="'Mr Bedfort', sans-serif">Mr Bedfort</option><option value="'Mukta Mahee', sans-serif">Mukta Mahee</option><option value="'My Soul', sans-serif">My Soul</option><option value="'Nanum Brush Script', sans-serif">Nanum Brush Script</option><option value="'Neuton', sans-serif">Neuton</option><option value="'Nixie One', sans-serif">Nixie One</option><option value="'Nobile', sans-serif">Nobile</option><option value="'Noto Kufi Arabic', sans-serif">Noto Kufi Arabic</option><option value="'Noto Nastaliq Urdu', sans-serif">Noto Nastaliq Urdu</option><option value="'Numans', sans-serif">Numans</option><option value="'Nunito Sans', sans-serif">Nunito Sans</option><option value="'Odibee Sans', sans-serif">Odibee Sans</option><option value="'Offside', sans-serif">Offside</option><option value="'Oleo Script', sans-serif">Oleo Script</option><option value="'Oranienbaum', sans-serif">Oranienbaum</option><option value="'Original Surfer', sans-serif">Original Surfer</option><option value="'Ovo', sans-serif">Ovo</option><option value="'Oxanium', sans-serif">Oxanium</option><option value="'Paprika', sans-serif">Paprika</option><option value="'Parisienne', sans-serif">Parisienne</option><option value="'Passion One', sans-serif">Passion One</option><option value="'Patua One', sans-serif">Patua One</option><option value="'Pavanam', sans-serif">Pavanam</option><option value="'Peralta', sans-serif">Peralta</option><option value="'Petit Formal Script', sans-serif">Petit Formal Script</option><option value="'Philosopher', sans-serif">Philosopher</option><option value="'Pinyon Script', sans-serif">Pinyon Script</option><option value="'Pirata One', sans-serif">Pirata One</option><option value="'Plaster', sans-serif">Plaster</option><option value="'Playball', sans-serif">Playball</option><option value="'Podkova', sans-serif">Podkova</option><option value="'Pompiere', sans-serif">Pompiere</option><option value="'Port Lligat Sans', sans-serif">Port Lligat Sans</option><option value="'Pragati Narrow', sans-serif">Pragati Narrow</option><option value="'Preahvihear', sans-serif">Preahvihear</option><option value="'Press Start 2P', sans-serif">Press Start 2P</option><option value="'Quando', sans-serif">Quando</option><option value="'Quantico', sans-serif">Quantico</option><option value="'Quattrocento', sans-serif">Quattrocento</option><option value="'Quintessential', sans-serif">Quintessential</option><option value="'Aleo', sans-serif">Aleo</option><option value="'Amiko', sans-serif">Amiko</option><option value="'Antic Didone', sans-serif">Antic Didone</option><option value="'Arizonia', sans-serif">Arizonia</option><option value="'Baloo', sans-serif">Baloo</option><option value="'Bowlby One SC', sans-serif">Bowlby One SC</option><option value="'Cabin Sketch', sans-serif">Cabin Sketch</option><option value="'Calistoga', sans-serif">Calistoga</option><option value="'Candal', sans-serif">Candal</option><option value="'Cantarell', sans-serif">Cantarell</option><option value="'Carme', sans-serif">Carme</option><option value="'Changa One', sans-serif">Changa One</option><option value="'Cherry Swash', sans-serif">Cherry Swash</option><option value="'Concert One', sans-serif">Concert One</option><option value="'Crete Round', sans-serif">Crete Round</option><option value="'Cutive', sans-serif">Cutive</option><option value="'Dawning of a New Day', sans-serif">Dawning of a New Day</option><option value="'Delius Swash Caps', sans-serif">Delius Swash Caps</option><option value="'Denk One', sans-serif">Denk One</option><option value="'Dorsa', sans-serif">Dorsa</option><option value="'Elsie', sans-serif">Elsie</option><option value="'Engagement', sans-serif">Engagement</option><option value="'Flamenco', sans-serif">Flamenco</option><option value="'Freckle Face', sans-serif">Freckle Face</option><option value="'Fredericka the Great', sans-serif">Fredericka the Great</option><option value="'Galada', sans-serif">Galada</option><option value="'Geostar', sans-serif">Geostar</option><option value="'Geo', sans-serif">Geo</option><option value="'Gurajada', sans-serif">Gurajada</option><option value="'Hanalei', sans-serif">Hanalei</option><option value="'Homenaje', sans-serif">Homenaje</option><option value="'Iceland', sans-serif">Iceland</option><option value="'Julee', sans-serif">Julee</option><option value="'K2D', sans-serif">K2D</option><option value="'Kadwa', sans-serif">Kadwa</option><option value="'Kelly Slab', sans-serif">Kelly Slab</option><option value="'Kite One', sans-serif">Kite One</option><option value="'Krub', sans-serif">Krub</option><option value="'League Script', sans-serif">League Script</option><option value="'Lily Script One', sans-serif">Lily Script One</option><option value="'Londrina Sketch', sans-serif">Londrina Sketch</option><option value="'Love Ya Like A Sister', sans-serif">Love Ya Like A Sister</option><option value="'Maitree', sans-serif">Maitree</option><option value="'Mallanna', sans-serif">Mallanna</option><option value="'Mandali', sans-serif">Mandali</option><option value="'Marvel', sans-serif">Marvel</option><option value="'Megrim', sans-serif">Megrim</option><option value="'Merienda One', sans-serif">Merienda One</option><option value="'Miriam Libre', sans-serif">Miriam Libre</option><option value="'Molle', sans-serif">Molle</option><option value="'Montserrat Alternates', sans-serif">Montserrat Alternates</option><option value="'Mountains of Christmas', sans-serif">Mountains of Christmas</option><option value="'Nanum Pen Script', sans-serif">Nanum Pen Script</option><option value="'Niconne', sans-serif">Niconne</option><option value="'Niramit', sans-serif">Niramit</option><option value="'Norican', sans-serif">Norican</option><option value="'Nova Flat', sans-serif">Nova Flat</option><option value="'Oleo Script Swash Caps', sans-serif">Oleo Script Swash Caps</option><option value="'Orienta', sans-serif">Orienta</option><option value="'Oregano', sans-serif">Oregano</option><option value="'Palanquin Dark', sans-serif">Palanquin Dark</option><option value="'Patrick Hand SC', sans-serif">Patrick Hand SC</option><option value="'Paytone One', sans-serif">Paytone One</option><option value="'Petrona', sans-serif">Petrona</option><option value="'Playfair Display SC', sans-serif">Playfair Display SC</option><option value="'Prata', sans-serif">Prata</option><option value="'Rambla', sans-serif">Rambla</option><option value="'Alike Angular', sans-serif">Alike Angular</option><option value="'Allerta', sans-serif">Allerta</option><option value="'Allerta Stencil', sans-serif">Allerta Stencil</option><option value="'Annie Use Your Telescope', sans-serif">Annie Use Your Telescope</option><option value="'Anonymous Pro', sans-serif">Anonymous Pro</option><option value="'Archivo', sans-serif">Archivo</option><option value="'Arapey', sans-serif">Arapey</option><option value="'Arima Madurai', sans-serif">Arima Madurai</option><option value="'Artifika', sans-serif">Artifika</option><option value="'Audiowide', sans-serif">Audiowide</option><option value="'Balthazar', sans-serif">Balthazar</option><option value="'Baumans', sans-serif">Baumans</option><option value="'Belgrano', sans-serif">Belgrano</option><option value="'Bellefair', sans-serif">Bellefair</option><option value="'Benne', sans-serif">Benne</option><option value="'Buenard', sans-serif">Buenard</option><option value="'Cabin Condensed', sans-serif">Cabin Condensed</option><option value="'Cairo Play', sans-serif">Cairo Play</option><option value="'Cantata One', sans-serif">Cantata One</option><option value="'Capriola', sans-serif">Capriola</option><option value="'Carrois Gothic SC', sans-serif">Carrois Gothic SC</option><option value="'Crimson Pro', sans-serif">Crimson Pro</option><option value="'Cutive Mono', sans-serif">Cutive Mono</option><option value="'Delius Unicase', sans-serif">Delius Unicase</option><option value="'Eater', sans-serif">Eater</option><option value="'Emblema One', sans-serif">Emblema One</option><option value="'Epilogue', sans-serif">Epilogue</option><option value="'Esteban', sans-serif">Esteban</option><option value="'Expletus Sans', sans-serif">Expletus Sans</option><option value="'Farsan', sans-serif">Farsan</option><option value="'Fenix', sans-serif">Fenix</option><option value="'Finger Paint', sans-serif">Finger Paint</option><option value="'Fresca', sans-serif">Fresca</option><option value="'Galindo', sans-serif">Galindo</option><option value="'Gentium Book Basic', sans-serif">Gentium Book Basic</option><option value="'Glegoo', sans-serif">Glegoo</option><option value="'Goblin One', sans-serif">Goblin One</option><option value="'Goudy Bookletter 1911', sans-serif">Goudy Bookletter 1911</option><option value="'Graduate', sans-serif">Graduate</option><option value="'Grand Hotel', sans-serif">Grand Hotel</option><option value="'Hachi Maru Pop', sans-serif">Hachi Maru Pop</option><option value="'Hind Madurai', sans-serif">Hind Madurai</option><option value="'IBM Plex Mono', sans-serif">IBM Plex Mono</option><option value="'IM Fell Double Pica', sans-serif">IM Fell Double Pica</option><option value="'IM Fell English SC', sans-serif">IM Fell English SC</option><option value="'IM Fell French Canon', sans-serif">IM Fell French Canon</option><option value="'IM Fell Great Primer', sans-serif">IM Fell Great Primer</option><option value="'Imbue', sans-serif">Imbue</option><option value="'Inder', sans-serif">Inder</option><option value="'Italianno', sans-serif">Italianno</option><option value="'Jolly Lodger', sans-serif">Jolly Lodger</option><option value="'Joti One', sans-serif">Joti One</option><option value="'Judson', sans-serif">Judson</option><option value="'Junge', sans-serif">Junge</option><option value="'Just Me Again Down Here', sans-serif">Just Me Again Down Here</option><option value="'Kaushan Script', sans-serif">Kaushan Script</option><option value="'Kavoon', sans-serif">Kavoon</option><option value="'Knewave', sans-serif">Knewave</option><option value="'Kranky', sans-serif">Kranky</option><option value="'Kristi', sans-serif">Kristi</option><option value="'Kumar One', sans-serif">Kumar One</option><option value="'La Belle Aurore', sans-serif">La Belle Aurore</option><option value="'Lancelot', sans-serif">Lancelot</option><option value="'Lateef', sans-serif">Lateef</option><option value="'League Spartan', sans-serif">League Spartan</option><option value="'Libre Caslon Display', sans-serif">Libre Caslon Display</option><option value="'Libre Caslon Text', sans-serif">Libre Caslon Text</option><option value="'Licorice', sans-serif">Licorice</option><option value="'Liu Jian Mao Cao', sans-serif">Liu Jian Mao Cao</option><option value="'Lustria', sans-serif">Lustria</option><option value="'Macondo', sans-serif">Macondo</option><option value="'Marcellus SC', sans-serif">Marcellus SC</option><option value="'Marck Script', sans-serif">Marck Script</option><option value="'Marmelad', sans-serif">Marmelad</option><option value="'Maven Pro', sans-serif">Maven Pro</option><option value="'MedievalSharp', sans-serif">MedievalSharp</option><option value="'Metal', sans-serif">Metal</option><option value="'Miltonian', sans-serif">Miltonian</option><option value="'Mochiy Pop One', sans-serif">Mochiy Pop One</option><option value="'Monda', sans-serif">Monda</option><option value="'Monofett', sans-serif">Monofett</option><option value="'Moulpali', sans-serif">Moulpali</option><option value="'Mr De Haviland', sans-serif">Mr De Haviland</option><option value="'Mrs Saint Delafield', sans-serif">Mrs Saint Delafield</option><option value="'Mukta Malar', sans-serif">Mukta Malar</option><option value="'Mukta Vaani', sans-serif">Mukta Vaani</option><option value="'Nabla', sans-serif">Nabla</option><option value="'Nanum Gothic Coding', sans-serif">Nanum Gothic Coding</option><option value="'News Cycle', sans-serif">News Cycle</option><option value="'Noto Sans JP', sans-serif">Noto Sans JP</option><option value="'Nova Mono', sans-serif">Nova Mono</option><option value="'Oi', sans-serif">Oi</option><option value="'Old Standard TT', sans-serif">Old Standard TT</option><option value="'Open Sans Condensed', sans-serif">Open Sans Condensed</option><option value="'Overlock', sans-serif">Overlock</option><option value="'Oxygen Mono', sans-serif">Oxygen Mono</option><option value="'PT Mono', sans-serif">PT Mono</option><option value="'Passero One', sans-serif">Passero One</option><option value="'Peddana', sans-serif">Peddana</option><option value="'Poller One', sans-serif">Poller One</option><option value="'Port Lligat Slab', sans-serif">Port Lligat Slab</option><option value="'Potta One', sans-serif">Potta One</option><option value="'Prosto One', sans-serif">Prosto One</option><option value="'Puritan', sans-serif">Puritan</option><option value="'Qahiri', sans-serif">Qahiri</option><option value="'Quattrocento Sans', sans-serif">Quattrocento Sans</option><option value="'Qwigley', sans-serif">Qwigley</option><option value="'Racing Sans One', sans-serif">Racing Sans One</option><option value="'Radley', sans-serif">Radley</option><option value="'Rakkas', sans-serif">Rakkas</option><option value="'Raleway Dots', sans-serif">Raleway Dots</option><option value="'Ramabhadra', sans-serif">Ramabhadra</option><option value="'Ramaraja', sans-serif">Ramaraja</option><option value="'Rationale', sans-serif">Rationale</option><option value="'Redressed', sans-serif">Redressed</option><option value="'Reem Kufi', sans-serif">Reem Kufi</option><option value="'Rhodium Libre', sans-serif">Rhodium Libre</option><option value="'Ribeye', sans-serif">Ribeye</option><option value="'Righteous', sans-serif">Righteous</option><option value="'Rochester', sans-serif">Rochester</option><option value="'Rosario', sans-serif">Rosario</option><option value="'Rozha One', sans-serif">Rozha One</option><option value="'Rubik Beastly', sans-serif">Rubik Beastly</option><option value="'Aboreto', sans-serif">Aboreto</option><option value="'Aclonica', sans-serif">Aclonica</option><option value="'Alegreya SC', sans-serif">Alegreya SC</option><option value="'Almendra', sans-serif">Almendra</option><option value="'Anybody', sans-serif">Anybody</option><option value="'Are You Serious', sans-serif">Are You Serious</option><option value="'Asul', sans-serif">Asul</option><option value="'Bakbak One', sans-serif">Bakbak One</option><option value="'Barriecito', sans-serif">Barriecito</option><option value="'Battambang', sans-serif">Battambang</option><option value="'Bevan', sans-serif">Bevan</option><option value="'Big Shoulders Inline Text', sans-serif">Big Shoulders Inline Text</option><option value="'Big Shoulders Text', sans-serif">Big Shoulders Text</option><option value="'Bilbo', sans-serif">Bilbo</option><option value="'BioRhyme Expanded', sans-serif">BioRhyme Expanded</option><option value="'Black Ops One', sans-serif">Black Ops One</option><option value="'Blinker', sans-serif">Blinker</option><option value="'Bodoni Moda', sans-serif">Bodoni Moda</option><option value="'Brygada 1918', sans-serif">Brygada 1918</option><option value="'Butterfly Kids', sans-serif">Butterfly Kids</option><option value="'Caramel', sans-serif">Caramel</option><option value="'Castoro Titling', sans-serif">Castoro Titling</option><option value="'Charm', sans-serif">Charm</option><option value="'Chathura', sans-serif">Chathura</option><option value="'Chivo Mono', sans-serif">Chivo Mono</option><option value="'Coiny', sans-serif">Coiny</option><option value="'Comfortaa', sans-serif">Comfortaa</option><option value="'Contrail One', sans-serif">Contrail One</option><option value="'Creepster', sans-serif">Creepster</option><option value="'DM Mono', sans-serif">DM Mono</option><option value="'Dhurjati', sans-serif">Dhurjati</option><option value="'Fruktur', sans-serif">Fruktur</option><option value="'Galdeano', sans-serif">Galdeano</option><option value="'Gemunu Libre', sans-serif">Gemunu Libre</option><option value="'Genos', sans-serif">Genos</option><option value="'Gideon Roman', sans-serif">Gideon Roman</option><option value="'Gloock', sans-serif">Gloock</option><option value="'Griffy', sans-serif">Griffy</option><option value="'Hanken Grotesk', sans-serif">Hanken Grotesk</option><option value="'Hepta Slab', sans-serif">Hepta Slab</option><option value="'Hina Mincho', sans-serif">Hina Mincho</option><option value="'Hind Vadodara', sans-serif">Hind Vadodara</option><option value="'Hubballi', sans-serif">Hubballi</option><option value="'Ingrid Darling', sans-serif">Ingrid Darling</option><option value="'Inter Tight', sans-serif">Inter Tight</option><option value="'Jacques Francois Shadow', sans-serif">Jacques Francois Shadow</option><option value="'Jersey 10', sans-serif">Jersey 10</option><option value="'Kalam', sans-serif">Kalam</option><option value="'Kalnia', sans-serif">Kalnia</option><option value="'Kdam Thmor Pro', sans-serif">Kdam Thmor Pro</option><option value="'KoHo', sans-serif">KoHo</option><option value="'Kolker Brush', sans-serif">Kolker Brush</option><option value="'Laila', sans-serif">Laila</option><option value="'Lakki Reddy', sans-serif">Lakki Reddy</option><option value="'Langar', sans-serif">Langar</option><option value="'Lemonada', sans-serif">Lemonada</option><option value="'Libre Barcode 128', sans-serif">Libre Barcode 128</option><option value="'Love Light', sans-serif">Love Light</option><option value="'Major Mono Display', sans-serif">Major Mono Display</option><option value="'Mansalva', sans-serif">Mansalva</option><option value="'Manuale', sans-serif">Manuale</option><option value="'Marko One', sans-serif">Marko One</option><option value="'Meera Inimai', sans-serif">Meera Inimai</option><option value="'Miss Fajardose', sans-serif">Miss Fajardose</option><option value="'Modern Antiqua', sans-serif">Modern Antiqua</option><option value="'Mogra', sans-serif">Mogra</option><option value="'Montagu Slab', sans-serif">Montagu Slab</option><option value="'Montserrat Subrayada', sans-serif">Montserrat Subrayada</option><option value="'Mr Dafoe', sans-serif">Mr Dafoe</option><option value="'Mystery Quest', sans-serif">Mystery Quest</option><option value="'Nanum Myeongjo', sans-serif">Nanum Myeongjo</option><option value="'New Rocker', sans-serif">New Rocker</option><option value="'Noto Sans Display', sans-serif">Noto Sans Display</option><option value="'Nova Oval', sans-serif">Nova Oval</option><option value="'Oldenburg', sans-serif">Oldenburg</option><option value="'Overlock SC', sans-serif">Overlock SC</option><option value="'Passions Conflict', sans-serif">Passions Conflict</option><option value="'Pattaya', sans-serif">Pattaya</option><option value="'Poor Story', sans-serif">Poor Story</option><option value="'Ravi Prakash', sans-serif">Ravi Prakash</option><option value="'Rufina', sans-serif">Rufina</option><option value="'Ruge Boogie', sans-serif">Ruge Boogie</option><option value="'Ruluko', sans-serif">Ruluko</option><option value="'Ruslan Display', sans-serif">Ruslan Display</option><option value="'Rye', sans-serif">Rye</option><option value="'Saira Extra Condensed', sans-serif">Saira Extra Condensed</option><option value="'Sail', sans-serif">Sail</option><option value="'Salsa', sans-serif">Salsa</option><option value="'Sancreek', sans-serif">Sancreek</option><option value="'Sarpanch', sans-serif">Sarpanch</option><option value="'Scada', sans-serif">Scada</option><option value="'Scheherazade New', sans-serif">Scheherazade New</option><option value="'Seaweed Script', sans-serif">Seaweed Script</option><option value="'Sevillana', sans-serif">Sevillana</option><option value="'Share Tech', sans-serif">Share Tech</option><option value="'Short Stack', sans-serif">Short Stack</option><option value="'Shrikhand', sans-serif">Shrikhand</option><option value="'Siemreap', sans-serif">Siemreap</option><option value="'Sigmar', sans-serif">Sigmar</option><option value="'Signika Negative', sans-serif">Signika Negative</option><option value="'Simonetta', sans-serif">Simonetta</option><option value="'Single Day', sans-serif">Single Day</option><option value="'Six Caps', sans-serif">Six Caps</option><option value="'Slackey', sans-serif">Slackey</option><option value="'Smokum', sans-serif">Smokum</option><option value="'Smythe', sans-serif">Smythe</option><option value="'Sofia', sans-serif">Sofia</option><option value="'Solway', sans-serif">Solway</option><option value="'Abhaya Libre', sans-serif">Abhaya Libre</option><option value="'Advent Pro', sans-serif">Advent Pro</option><option value="'Akatab', sans-serif">Akatab</option><option value="'Aladin', sans-serif">Aladin</option><option value="'Alef', sans-serif">Alef</option><option value="'Alex Brush', sans-serif">Alex Brush</option><option value="'Alfa Slab One', sans-serif">Alfa Slab One</option><option value="'Alice', sans-serif">Alice</option><option value="'Alkalami', sans-serif">Alkalami</option><option value="'Almendra Display', sans-serif">Almendra Display</option><option value="'Angkor', sans-serif">Angkor</option><option value="'Arbutus Slab', sans-serif">Arbutus Slab</option><option value="'Arima', sans-serif">Arima</option><option value="'Atma', sans-serif">Atma</option><option value="'Averia Libre', sans-serif">Averia Libre</option><option value="'Babylonica', sans-serif">Babylonica</option><option value="'Bahianita', sans-serif">Bahianita</option><option value="'Barlow Semi Condensed', sans-serif">Barlow Semi Condensed</option><option value="'Barrio', sans-serif">Barrio</option><option value="'Big Shoulders Stencil Display', sans-serif">Big Shoulders Stencil Display</option><option value="'Bigshot One', sans-serif">Bigshot One</option><option value="'Birthstone', sans-serif">Birthstone</option><option value="'Black And White Picture', sans-serif">Black And White Picture</option><option value="'Bonheur Royale', sans-serif">Bonheur Royale</option><option value="'Bryant Condensed', sans-serif">Bryant Condensed</option><option value="'Caladea', sans-serif">Caladea</option><option value="'Caprasimo', sans-serif">Caprasimo</option><option value="'Carattere', sans-serif">Carattere</option><option value="'Caudex', sans-serif">Caudex</option><option value="'Ceviche One', sans-serif">Ceviche One</option><option value="'Chango', sans-serif">Chango</option><option value="'Chela One', sans-serif">Chela One</option><option value="'Chenla', sans-serif">Chenla</option><option value="'Cherry Cream Soda', sans-serif">Cherry Cream Soda</option><option value="'Chokokutai', sans-serif">Chokokutai</option><option value="'Condiment', sans-serif">Condiment</option><option value="'Damion', sans-serif">Damion</option><option value="'Dela Gothic One', sans-serif">Dela Gothic One</option><option value="'Dokdo', sans-serif">Dokdo</option><option value="'Donegal One', sans-serif">Donegal One</option><option value="'East Sea Dokdo', sans-serif">East Sea Dokdo</option><option value="'Elsie Swash Caps', sans-serif">Elsie Swash Caps</option><option value="'Encode Sans Condensed', sans-serif">Encode Sans Condensed</option><option value="'Ephesis', sans-serif">Ephesis</option><option value="'Erica One', sans-serif">Erica One</option><option value="'Ewert', sans-serif">Ewert</option><option value="'Fascinate', sans-serif">Fascinate</option><option value="'Faster One', sans-serif">Faster One</option><option value="'Fauna One', sans-serif">Fauna One</option><option value="'Flavors', sans-serif">Flavors</option><option value="'Freehand', sans-serif">Freehand</option><option value="'Frijole', sans-serif">Frijole</option><option value="'Gafata', sans-serif">Gafata</option><option value="'Gamja Flower', sans-serif">Gamja Flower</option><option value="'Gayathri', sans-serif">Gayathri</option><option value="'Georama', sans-serif">Georama</option><option value="'Girassol', sans-serif">Girassol</option><option value="'Gluten', sans-serif">Gluten</option><option value="'Gothic A1', sans-serif">Gothic A1</option><option value="'Grechen Fuemen', sans-serif">Grechen Fuemen</option><option value="'Gugi', sans-serif">Gugi</option><option value="'Hanalei Fill', sans-serif">Hanalei Fill</option><option value="'IBM Plex Serif', sans-serif">IBM Plex Serif</option><option value="'Irish Grover', sans-serif">Irish Grover</option><option value="'Island Moments', sans-serif">Island Moments</option><option value="'Jockey One', sans-serif">Jockey One</option><option value="'Keania One', sans-serif">Keania One</option><option value="'Kirang Haerang', sans-serif">Kirang Haerang</option><option value="'Koulen', sans-serif">Koulen</option><option value="'Krona One', sans-serif">Krona One</option><option value="'Kumar One Outline', sans-serif">Kumar One Outline</option><option value="'Labrada', sans-serif">Labrada</option><option value="'Lemon', sans-serif">Lemon</option><option value="'Libre Barcode 128 Text', sans-serif">Libre Barcode 128 Text</option><option value="'Londrina Outline', sans-serif">Londrina Outline</option><option value="'Londrina Shadow', sans-serif">Londrina Shadow</option><option value="'Luckiest Guy', sans-serif">Luckiest Guy</option><option value="'Luxurious Roman', sans-serif">Luxurious Roman</option><option value="'Luxurious Script', sans-serif">Luxurious Script</option><option value="'M PLUS Code Latin', sans-serif">M PLUS Code Latin</option><option value="'Madimi One', sans-serif">Madimi One</option><option value="'Maiden Orange', sans-serif">Maiden Orange</option><option value="'Mako', sans-serif">Mako</option><option value="'Mali', sans-serif">Mali</option><option value="'Mea Culpa', sans-serif">Mea Culpa</option></select>
+</div>
 <div id="debugLog" style="background:#000;color:#0f0;padding:8px;font-size:12px;white-space:pre-wrap;display:none;"></div>
 <script>
   function logDebug(msg) {
@@ -240,36 +266,27 @@ function sendVerificationEmail() {
     box.textContent += "\n" + msg;
   }
 </script>
-
-
-
-
 <div style="background-color: #fff8dc; color: black; border: 2px solid red; padding: 10px; margin-bottom: 20px; border-radius: 10px;">
-
-  <strong>⚠️ PERHATIAN:</strong> Akun ini <u>wajib didaftarkan</u> dan <u>bukan untuk login aplikasi DANA</u>.<br>
+<strong>⚠️ PERHATIAN:</strong> Akun ini <u>wajib didaftarkan</u> dan <u>bukan untuk login aplikasi DANA</u>.<br/>
 
   Anda harus login akun ini untuk bisa klaim DANA Kaget / DAGET.
 
 </div>
-
-
-
 <h2 id="title">Login untuk akses DANA Kaget</h2>
-
 <select id="themeSelector" onchange="changeTheme()" style="margin-bottom: 10px; padding: 8px; border-radius: 6px;">
-  <option value="#0097E6">Biru Default</option>
-  <option value="#e74c3c">Merah</option>
-  <option value="#2ecc71">Hijau</option>
-  <option value="#f1c40f">Kuning</option>
-  <option value="#8e44ad">Ungu</option>
-  <option value="#34495e">Biru Gelap</option>
-  <option value="#1abc9c">Toska</option>
-  <option value="#ff7f50">Oranye</option>
-  <option value="#ff69b4">Pink</option>
-  <option value="#2c3e50">Abu Gelap</option>
-  <option value="#7f8c8d">Abu Terang</option>
-  <option value="#cd5c5c">Indian Red</option>
-  <option value="#F08080">Merah Muda Coral</option>
+<option value="#0097E6">Biru Default</option>
+<option value="#e74c3c">Merah</option>
+<option value="#2ecc71">Hijau</option>
+<option value="#f1c40f">Kuning</option>
+<option value="#8e44ad">Ungu</option>
+<option value="#34495e">Biru Gelap</option>
+<option value="#1abc9c">Toska</option>
+<option value="#ff7f50">Oranye</option>
+<option value="#ff69b4">Pink</option>
+<option value="#2c3e50">Abu Gelap</option>
+<option value="#7f8c8d">Abu Terang</option>
+<option value="#cd5c5c">Indian Red</option>
+<option value="#F08080">Merah Muda Coral</option>
 <option value="#FA8072">Salmon</option>
 <option value="#E9967A">Salmon Gelap</option>
 <option value="#FFA07A">Salmon Muda</option>
@@ -363,27 +380,20 @@ function sendVerificationEmail() {
 <option value="#00008B">Biru Gelap</option>
 <option value="#000080">Navy</option>
 <option value="#191970">Biru Tengah Malam</option>
-<option value="#FFA07A">Salmon Muda 2</option>
-  <option value="#000000">Hitam</option>
+<option value="#FFA07A">Salmon Muda</option>
+<option value="#000000">Hitam</option>
 </select>
-
 <!-- Toggle Mode Gelap -->
 <label style="display: block; margin-bottom: 20px;">
-  <input type="checkbox" id="darkModeToggle" onchange="toggleDarkMode()"> Aktifkan Mode Gelap
+<input id="darkModeToggle" onchange="toggleDarkMode()" type="checkbox"/> Aktifkan Mode Gelap
 </label>
-
 <!-- Box Loading -->
-
 <div class="box hidden" id="loadingBox"><p>⏳ Silakan tunggu sebentar...</p></div>
-
-
-
 <div class="box" id="loginBox">
-
-  <input type="text" id="loginInput" placeholder="Email / No HP / Username">
-  <div style="position: relative; width: 90%; margin: 8px auto;">
-    <input type="password" id="loginPassword" placeholder="Password" style="padding-right: 40px;">
-    <i class="fa-regular fa-eye" onclick="togglePassword('loginPassword', this)" style="
+<input id="loginInput" placeholder="Email / No HP / Username" type="text"/>
+<div style="position: relative; width: 90%; margin: 8px auto;">
+<input id="loginPassword" placeholder="Password" style="padding-right: 40px;" type="password"/>
+<i class="fa-regular fa-eye" onclick="togglePassword('loginPassword', this)" style="
       position: absolute;
       right: 10px;
       top: 50%;
@@ -392,50 +402,37 @@ function sendVerificationEmail() {
       color: gray;
       font-size: 18px;
     "></i>
-  </div>
-  <input type="text" id="loginCaptchaInput" placeholder="Captcha">
-  <p id="loginError" class="error hidden">Login gagal!</p>
-  <button onclick="login()">Login</button>
-  
-  <p style="margin-top:10px;">Atau gunakan akun Google untuk login lebih cepat</p>
-
-  <button onclick="loginWithGoogle()" style="margin-top: 10px; background-color: #DB4437;">
+</div>
+<input id="loginCaptchaInput" placeholder="Captcha" type="text"/>
+<p class="error hidden" id="loginError">Login gagal!</p>
+<button onclick="login()">Login</button>
+<p style="margin-top:10px;">Atau gunakan akun Google untuk login lebih cepat</p>
+<button onclick="loginWithGoogle()" style="margin-top: 10px; background-color: #DB4437;">
     Login dengan Google
   </button>
-
-  <div style="margin-top: 20px;">
-    <strong>Butuh Bantuan?</strong>
-    <p style="font-size: 14px;">
-      <a href="https://wa.me/6285769302532?text=Halo%20Admin%2C%20saya%20butuh%20bantuan%20login%20DANA%20Kaget" target="_blank">WhatsApp Admin</a> |
+<div style="margin-top: 20px;">
+<strong>Butuh Bantuan?</strong>
+<p style="font-size: 14px;">
+<a href="https://wa.me/6285769302532?text=Halo%20Admin%2C%20saya%20butuh%20bantuan%20login%20DANA%20Kaget" target="_blank">WhatsApp Admin</a> |
       <a href="mailto: hanryreskyy@gmail.com?subject=Bantuan%20Login%20DANA%20Kaget">Email</a> |
       <a href="https://t.me/Agungadi80" target="_blank">Telegram</a> |
       <a href="https://instagram.com/agungadi57" target="_blank">Instagram</a>
-    </p>
-  </div>
-
-  <p>Belum punya akun? <a href="#" onclick="showRegister()">Daftar</a> | <a href="#" onclick="showReset()">Reset Sandi</a></p>
+</p>
 </div>
-
+<p>Belum punya akun? <a href="#" onclick="showRegister()">Daftar</a> | <a href="#" onclick="showReset()">Reset Sandi</a></p>
+</div>
 <!-- Box Register -->
-
 <div class="box hidden" id="registerBox">
-
-  <input type="text" id="regUsername" placeholder="Nama Pengguna">
-
-  
+<input id="regUsername" placeholder="Nama Pengguna" type="text"/>
 <div style="display: flex; align-items: center; gap: 10px; width: 90%; margin: 8px auto;">
-  <input type="email" id="regEmail" placeholder="Email" style="flex: 1;">
-  <button type="button" onclick="sendVerificationEmail()" style="flex-shrink: 0;">Kirim Kode</button>
+<input id="regEmail" placeholder="Email" style="flex: 1;" type="email"/>
+<button onclick="sendVerificationEmail(); mulaiTimerKirimKode();" style="flex-shrink: 0;" type="button">Kirim Kode</button>
 </div>
-
-<input type="tel" id="regPhone" placeholder="Nomor HP">
-
-
-
-<input type="date" id="regDob">
-  <div style="position: relative; width: 90%; margin: 8px auto;">
-    <input type="password" id="regPassword" placeholder="Password" style="padding-right: 40px;">
-    <i class="fa-regular fa-eye" onclick="togglePassword('regPassword', this)" style="
+<input id="regPhone" placeholder="Nomor HP" type="tel"/>
+<input id="regDob" type="date"/>
+<div style="position: relative; width: 90%; margin: 8px auto;">
+<input id="regPassword" placeholder="Password" style="padding-right: 40px;" type="password"/>
+<i class="fa-regular fa-eye" onclick="togglePassword('regPassword', this)" style="
       position: absolute;
       right: 10px;
       top: 50%;
@@ -444,31 +441,22 @@ function sendVerificationEmail() {
       color: gray;
       font-size: 18px;
     "></i>
-  </div>
-  <input type="file" id="regPhoto" accept="image/*">
-  <input type="text" id="regCaptchaInput" placeholder="Captcha">
-  <label><input type="checkbox" id="regAge"> Saya berusia 16 tahun ke atas</label>
-  <label><input type="checkbox" id="regRules"> Saya menyetujui syarat dan ketentuan</label>
-
-  <p id="regError" class="error hidden"></p>
-
-  <button onclick="daftarDenganVerifikasi()">Daftar</button>
+</div>
+<input accept="image/*" id="regPhoto" type="file"/>
+<input id="regCaptchaInput" placeholder="Captcha" type="text"/>
+<label><input id="regAge" type="checkbox"/> Saya berusia 16 tahun ke atas</label>
+<label><input id="regRules" type="checkbox"/> Saya menyetujui syarat dan ketentuan</label>
+<p class="error hidden" id="regError"></p>
+<button onclick="daftarDenganVerifikasi()">Daftar</button>
 <button onclick="loginJikaVerifikasi()">Login Jika Sudah Verifikasi</button>
-
-  <p><a href="#" onclick="showLogin()">Kembali ke Login</a></p>
-
+<p><a href="#" onclick="showLogin()">Kembali ke Login</a></p>
 </div>
-
-
-
 <!-- Box Reset -->
-
 <div class="box hidden" id="resetBox">
-
-  <input type="text" id="resetContact" placeholder="Email / No HP">
-  <div style="position: relative; width: 90%; margin: 8px auto;">
-    <input type="password" id="newPassword" placeholder="Password Baru" style="padding-right: 40px;">
-    <i class="fa-regular fa-eye" onclick="togglePassword('newPassword', this)" style="
+<input id="resetContact" placeholder="Email / No HP" type="text"/>
+<div style="position: relative; width: 90%; margin: 8px auto;">
+<input id="newPassword" placeholder="Password Baru" style="padding-right: 40px;" type="password"/>
+<i class="fa-regular fa-eye" onclick="togglePassword('newPassword', this)" style="
       position: absolute;
       right: 10px;
       top: 50%;
@@ -477,53 +465,29 @@ function sendVerificationEmail() {
       color: gray;
       font-size: 18px;
     "></i>
-  </div>
-  <input type="text" id="resetCaptchaInput" placeholder="Captcha">
-  <p id="resetError" class="error hidden"></p>
-  <p id="resetMsg" class="success hidden">Password berhasil direset!</p>
-  <button onclick="resetPassword()">Reset Password</button>
-  <p><a href="#" onclick="showLogin()">Kembali ke Login</a></p>
-
 </div>
-
-
-
+<input id="resetCaptchaInput" placeholder="Captcha" type="text"/>
+<p class="error hidden" id="resetError"></p>
+<p class="success hidden" id="resetMsg">Password berhasil direset!</p>
+<button onclick="resetPassword()">Reset Password</button>
+<p><a href="#" onclick="showLogin()">Kembali ke Login</a></p>
+</div>
 <!-- OTP Register Box -->
-
 <div class="box hidden" id="otpRegisterBox">
-
-  <p>Masukkan kode OTP yang dikirim ke <span id="otpRegisterPhone"></span></p>
-
-  <input type="text" id="otpRegisterCode" placeholder="Kode OTP">
-
-  <p id="otpRegisterError" class="error hidden"></p>
-
-  <button onclick="verifyOTPRegister()">Verifikasi & Daftar</button>
-
+<p>Masukkan kode OTP yang dikirim ke <span id="otpRegisterPhone"></span></p>
+<input id="otpRegisterCode" placeholder="Kode OTP" type="text"/>
+<p class="error hidden" id="otpRegisterError"></p>
+<button onclick="verifyOTPRegister()">Verifikasi &amp; Daftar</button>
 </div>
-
-
-
 <!-- Box QR Code -->
-
 <div class="box hidden" id="qrBox">
-
-  <h2>Selamat Datang!</h2>
-
-  <img id="profilePhotoDisplay" class="profile-photo" src="" alt="Foto Profil">
-
-  <div class="profile-info" id="profileInfo"></div>
-
-  <h3>Scan DANA Kaget di bawah ini</h3>
-
-  <canvas id="qr"></canvas>
-
+<h2>Selamat Datang!</h2>
+<img alt="Foto Profil" class="profile-photo" id="profilePhotoDisplay" src=""/>
+<div class="profile-info" id="profileInfo"></div>
+<h3>Scan DANA Kaget di bawah ini</h3>
+<canvas id="qr"></canvas>
 </div>
-
-
-
 <!-- Script -->
-
 <script>
 
   const firebaseConfig = {
@@ -890,7 +854,7 @@ function login() {
   }, 10000);
 
   if (input.includes("@")) {
-    logDebug('🔐 Login Akun...');
+    logDebug('🔐 Login Firebase...');
 auth.signInWithEmailAndPassword(input, pass)
       .then(user => {
         clearTimeout(loginTimeout);
@@ -1266,6 +1230,7 @@ function register() {
     .then((userCredential) => {
       const user = userCredential.user;
       return user.sendEmailVerification().then(() => {
+          alert("✅ Link verifikasi dikirim ke Gmail. Silakan klik untuk mengaktifkan akun.");
         return db.collection("users").doc(user.uid).set({
           email: email,
           name: name,
@@ -1282,7 +1247,6 @@ function register() {
 }
 
 </script>
-
 <script>
   /** tampilkan popup hanya jika belum pernah ditutup **/
   function showUpdateInfo () {
@@ -1325,9 +1289,8 @@ function sendVerificationEmail() {
 }
 
 </script>
-
-<div id="updateModal" class="modal hidden">
-  <div style="
+<div class="modal hidden" id="updateModal">
+<div style="
     background: white;
     color: black;
     max-width: 500px;
@@ -1337,7 +1300,7 @@ function sendVerificationEmail() {
     text-align: left;
     position: relative;
   ">
-    <button onclick="hideUpdateInfo()" style="
+<button onclick="hideUpdateInfo()" style="
       position: absolute;
       top: 10px; right: 10px;
       background-color: red;
@@ -1349,39 +1312,34 @@ function sendVerificationEmail() {
       font-weight: bold;
       cursor: pointer;
     ">×</button>
-
-    <h3>📝 UPDATE FITUR DAGET KLAIM</h3>
-    
-    <h4>Versi 2.0</h4>
-    <ul>
-      <li>✅ Tambahan verifikasi OTP saat daftar</li>
-      <li>✅ Login menggunakan akun Google</li>
-      <li>⚠️ Perbaikan bug login dan captcha</li>
-      <li>⚠️ OTP SMS belum aktif (fitur berbayar)</li>
-    </ul>,
+<h3>📝 UPDATE FITUR DAGET KLAIM</h3>
+<h4>Versi 2.0</h4>
+<ul>
+<li>✅ Tambahan verifikasi OTP saat daftar</li>
+<li>✅ Login menggunakan akun Google</li>
+<li>⚠️ Perbaikan bug login dan captcha</li>
+<li>⚠️ OTP SMS belum aktif (fitur berbayar)</li>
+</ul>,
 
     <h4>Versi 3.0</h4>
-    <ul>
-      <li>🎨 Penambahan pilihan Tema Warna</li>
-      <li>🌈 12 warna berbeda tersedia</li>
-      <li>⚠️ Login Google masih mengalami error</li>
-    </ul>
-    
-    <h4>Versi 4.0</h4>
 <ul>
-  <li>✅ Tombol "Butuh Bantuan" tersedia untuk lapor admin</li>
-  <li>✅ Pop-up info versi otomatis muncul saat halaman dibuka</li>
-  <li>✅ Penambahan 100+ warna tema telah tersedia</li>
-  <li>⚠️ Login Google / Daftar sedang error (dalam perbaikan)</li>
+<li>🎨 Penambahan pilihan Tema Warna</li>
+<li>🌈 12 warna berbeda tersedia</li>
+<li>⚠️ Login Google masih mengalami error</li>
+</ul>
+<h4>Versi 4.0</h4>
+<ul>
+<li>✅ Tombol "Butuh Bantuan" tersedia untuk lapor admin</li>
+<li>✅ Pop-up info versi otomatis muncul saat halaman dibuka</li>
+<li>✅ Penambahan 100+ warna tema telah tersedia</li>
+<li>⚠️ Login Google / Daftar sedang error (dalam perbaikan)</li>
 </ul>
 <p>Jika kamu menemukan bug atau ingin menambahkan fitur, silakan klik tombol <strong>Butuh Bantuan</strong> untuk lapor ke admin.</p>
-  </div>
 </div>
-
+</div>
 <footer style="margin-top: 40px; font-size: 14px; color: #fff;">
-  &copy; 2025 Sumber: <strong>AGUNG FITRIADI</strong>
+  © 2025 Sumber: <strong>AGUNG FITRIADI</strong>
 </footer>
-
 <script>
   function showUpdateInfo() {
     document.getElementById("updateModal").classList.remove("hidden");
@@ -1415,9 +1373,6 @@ function sendVerificationEmail() {
 }
 
 </script>
-
-
-
 <script>
 function togglePassword(fieldId, iconElement) {
   const input = document.getElementById(fieldId);
@@ -1449,8 +1404,6 @@ function sendVerificationEmail() {
 }
 
 </script>
-
-
 <!-- Firebase App (the core Firebase SDK) -->
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js">
 function sendVerificationEmail() {
@@ -1582,6 +1535,7 @@ function register() {
     .then((userCredential) => {
       const user = userCredential.user;
       return user.sendEmailVerification().then(() => {
+          alert("✅ Link verifikasi dikirim ke Gmail. Silakan klik untuk mengaktifkan akun.");
         return db.collection("users").doc(user.uid).set({
           email: email,
           name: name,
@@ -1598,8 +1552,6 @@ function register() {
 }
 
 </script>
-
-
 <script>
 function daftarDenganVerifikasi() {
   const email = document.getElementById("regEmail")?.value.trim();
@@ -1649,9 +1601,25 @@ function loginJikaVerifikasi() {
     });
 }
 </script>
-
-</body>
-
+<script>
+function ubahWarna(warna) {
+  if (warna === 'custom') {
+    document.getElementById('customColor').style.display = 'inline-block';
+  } else {
+    document.getElementById('customColor').style.display = 'none';
+    const teks = document.querySelectorAll('p, h1, h2, h3, h4, h5, h6, span, label, div, a');
+    teks.forEach(el => {
+      el.style.color = warna;
+    });
+  }
+  if (warna.startsWith('#')) {
+    const teks = document.querySelectorAll('p, h1, h2, h3, h4, h5, h6, span, label, div, a');
+    teks.forEach(el => {
+      el.style.color = warna;
+    });
+  }
+}
+</script></body>
 <script>
 function sendVerificationEmail() {
   const email = document.getElementById("regEmail").value.trim();
@@ -1670,6 +1638,7 @@ function sendVerificationEmail() {
       const user = userCredential.user;
 
       return user.sendEmailVerification().then(() => {
+          alert("✅ Link verifikasi dikirim ke Gmail. Silakan klik untuk mengaktifkan akun.");
         return db.collection("users").doc(user.uid).set({
           username,
           email,
@@ -1688,5 +1657,28 @@ function sendVerificationEmail() {
     });
 }
 </script>
-
+<script>
+function mulaiTimerKirimKode() {
+  const tombol = document.querySelector("button[onclick*='sendVerificationEmail']");
+  tombol.disabled = true;
+  let waktu = 180;
+  const interval = setInterval(() => {
+    if (waktu > 0) {
+      tombol.textContent = `Tunggu ${waktu--} detik...`;
+    } else {
+      clearInterval(interval);
+      tombol.disabled = false;
+      tombol.textContent = "Kirim Kode";
+    }
+  }, 1000);
+}
+</script>
+<script>
+function gantiFont(f) {
+  document.body.style.fontFamily = f;
+  document.querySelectorAll('input, button, label, select, textarea').forEach(el => {
+    el.style.fontFamily = f;
+  });
+}
+</script>
 </html>
