@@ -3130,8 +3130,6 @@ function gantiFont(fontValue) {
   });
 }
 </script>
-
-
 <script>
   function previewPhoto(event) {
     const reader = new FileReader();
@@ -3152,20 +3150,6 @@ function gantiFont(fontValue) {
 </script>
 
 <script>
-  const activityKey = 'activityLogList';
-  const activityList = JSON.parse(localStorage.getItem(activityKey) || "[]");
-  const now = new Date().toLocaleString('id-ID');
-  activityList.unshift("Login pada " + now);
-  localStorage.setItem(activityKey, JSON.stringify(activityList));
-
-  document.addEventListener("DOMContentLoaded", function () {
-    const logBox = document.getElementById("activityLog");
-    if (logBox && activityList.length > 0) {
-      logBox.innerHTML = activityList.map(item => "• " + item).join("<br/>");
-    }
-  });
-</script>
-<script>
   const loginCountKey = 'userLoginCount';
   let loginCount = parseInt(localStorage.getItem(loginCountKey)) || 0;
   loginCount += 1;
@@ -3182,95 +3166,27 @@ function gantiFont(fontValue) {
     if (badgeEl) badgeEl.textContent = badgeMap(loginCount);
   });
 </script>
-<div id="user-section" style="display:none;"><div style="margin-top:10px;">
-<strong>Badge Level:</strong> <span id="user-badge">Memuat...</span>
-</div><div style="margin-top:15px;">
-<label for="photoUpload">📷 Upload Foto Profil:</label>
-<input accept="image/*" id="photoUpload" onchange="previewPhoto(event)" type="file"/>
+<div id="user-section" style="display:none;"><div id="uploadProfileSection" style="display:none; margin-top:15px;">
+<label for="profileFile">📷 Pilih Foto Profil:</label>
+<input accept="image/*" id="profileFile" onchange="previewFirebasePhoto(event)" type="file"/>
 <br/>
-<img alt="Foto Profil" class="profile-photo" id="previewProfile" src=""/>
-</div><div style="margin-top:20px;">
-<h4>🧾 Riwayat Aktivitas:</h4>
-<div id="activityLog" style="background:#f9f9f9;color:black;padding:10px;border-radius:8px;max-height:150px;overflow-y:auto;font-size:12px;"></div>
-</div></div><script>
-firebase.auth().onAuthStateChanged(function(user) {
-  if (user) {
-    document.getElementById("user-section").style.display = "block";
-  } else {
-    document.getElementById("user-section").style.display = "none";
-  }
-});
-</script>
-<div id="uploadProfileSection" style="margin-top:15px; display:none;">
-  <label for="profileFile">📷 Pilih Foto Profil:</label>
-  <input type="file" id="profileFile" accept="image/*" onchange="previewFirebasePhoto(event)" />
-  <br/>
-  <img id="firebasePhotoPreview" class="profile-photo" src="" alt="Preview Foto" />
-  <div style="margin-top:10px;">
-    <button onclick="uploadFirebaseProfile()" id="saveProfileBtn" style="display:none;">✅ Simpan</button>
-    <button onclick="cancelFirebaseUpload()" id="cancelProfileBtn" style="display:none; background:#ccc; color:#000;">❌ Batal</button>
-  </div>
+<img alt="Preview Foto" class="profile-photo" id="firebasePhotoPreview" src=""/>
+<div style="margin-top:10px;">
+<button id="saveProfileBtn" onclick="uploadFirebaseProfile()" style="display:none;">✅ Simpan</button>
+<button id="cancelProfileBtn" onclick="cancelFirebaseUpload()" style="display:none; background:#ccc; color:#000;">❌ Batal</button>
 </div>
-
+</div></div>
 <script>
-let selectedFile = null;
-
-function previewFirebasePhoto(event) {
-  selectedFile = event.target.files[0];
-  if (!selectedFile) return;
-
-  const reader = new FileReader();
-  reader.onload = function(e) {
-    document.getElementById("firebasePhotoPreview").src = e.target.result;
-    document.getElementById("saveProfileBtn").style.display = "inline-block";
-    document.getElementById("cancelProfileBtn").style.display = "inline-block";
-  };
-  reader.readAsDataURL(selectedFile);
-}
-
-function cancelFirebaseUpload() {
-  selectedFile = null;
-  document.getElementById("profileFile").value = "";
-  document.getElementById("firebasePhotoPreview").src = "";
-  document.getElementById("saveProfileBtn").style.display = "none";
-  document.getElementById("cancelProfileBtn").style.display = "none";
-}
-
-function uploadFirebaseProfile() {
-  if (!selectedFile || !firebase.auth().currentUser) return;
-
-  const user = firebase.auth().currentUser;
-  const storageRef = firebase.storage().ref("profile_photos/" + user.uid + ".jpg");
-  const uploadTask = storageRef.put(selectedFile);
-
-  uploadTask.on("state_changed",
-    function progress(snapshot) {
-      // Optional: bisa tampilkan progress bar
-    },
-    function error(err) {
-      alert("❌ Upload gagal: " + err.message);
-    },
-    function complete() {
-      uploadTask.snapshot.ref.getDownloadURL().then(function(downloadURL) {
-        user.updateProfile({ photoURL: downloadURL }).then(() => {
-          alert("✅ Foto profil berhasil diupdate!");
-          document.getElementById("firebasePhotoPreview").src = downloadURL;
-          document.getElementById("saveProfileBtn").style.display = "none";
-          document.getElementById("cancelProfileBtn").style.display = "none";
-        });
-      });
-    }
-  );
-}
-
 firebase.auth().onAuthStateChanged(function(user) {
-  if (user) {
-    document.getElementById("uploadProfileSection").style.display = "block";
-    if (user.photoURL) {
-      document.getElementById("firebasePhotoPreview").src = user.photoURL;
+  const showIfLogin = document.getElementById("user-section");
+  if (user && showIfLogin) {
+    showIfLogin.style.display = "block";
+    const photo = document.getElementById("firebasePhotoPreview");
+    if (user.photoURL && photo) {
+      photo.src = user.photoURL;
     }
+  } else if (showIfLogin) {
+    showIfLogin.style.display = "none";
   }
 });
-</script>
-
-</body></html>
+</script></body></html>
